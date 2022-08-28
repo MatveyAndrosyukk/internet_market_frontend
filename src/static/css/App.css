@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+.container {
+    margin: 0 166px;
+    position: relative;
+}
+

@@ -1,0 +1,60 @@
+.menu {
+    height: 100vh;
+}
+.menu-title {
+    text-align: center;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: #000000;
+    padding-top: 132px;
+}
+
+.menu-title span {
+    color: #D67E34;
+}
+
+.menu-content {
+    padding-top: 139px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-content-dishes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-content-dishes-item {
+    display: flex;
+}
+
+.menu-item-image {
+    padding: 0 30px;
+}
+
+.menu-item-text {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #000000;
+    display: flex;
+    padding-top: 41px;
+    position: relative;
+}
+
+.menu-item-text-price {
+    margin-left: 222px;
+}
+
+.menu-item-text-name:after {
+    position: absolute;
+    width: 204px;
+    content: '';
+    border: 1px dashed #656363;
+    background-color: #fff;
+    top: 57px;
+    left: 191px;
+}
+

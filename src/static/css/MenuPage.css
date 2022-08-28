@@ -1,0 +1,230 @@
+.menu-page {
+    background-image: url("../images/menu_page_bg.png");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.menu-page-title{
+    margin-top: 98px;
+    display: flex;
+    width: 1230px;
+}
+.menu-page-content-text {
+    margin-left: 370px;
+    animation: scaling 3s infinite;
+}
+
+
+.menu-page-prev-page {
+    margin-top: 30px;
+    width: 70px;
+    height: 70px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-page-prev-page-link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-page-prev-page:hover {
+    transform: scale(1.1);
+}
+
+.menu-page-content-text-link {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: #FFFFFF;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+
+}
+
+@keyframes scaling {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.menu-page-all-dishes-link {
+    margin-top: 50px;
+}
+
+.menu-page-all-dishes-link-btn {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 14px 5px;
+    background-color: #D67E34;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+}
+
+.menu-page-all-dishes-link-btn:hover {
+    background-color: #894B17;
+}
+
+
+.menu-page-content-dishes {
+    display: flex;
+    justify-content: center;
+    margin-top: 138px;
+    position: relative;
+}
+
+.menu-page-next-dish {
+    width: 40px;
+    height: 40px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    position: absolute;
+    top: 218px;
+    left: 1150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-page-next-dish:hover {
+    transform: scale(1.1);
+}
+
+.menu-page-prev-dish {
+    width: 40px;
+    height: 40px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    position: absolute;
+    top: 218px;
+    left: -19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.menu-page-prev-dish:hover {
+    transform: scale(1.1);
+}
+
+.menu-page-content-dish {
+    box-shadow: 10px 10px 40px 20px;
+    margin-right: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:  350px;
+    height: 510px;
+    background-color: #FFFFFF;
+    transition: transform 0.2s linear;
+}
+
+.menu-page-content-dish:hover {
+    transform: scale(1.05);
+}
+
+.menu-page-content-dish-image {
+    position: relative;
+}
+
+.menu-page-content-dish-img {
+    margin-top: 80px;
+    border-radius: 50%;
+}
+
+.menu-page-content-dish-price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #D67E34;
+    box-sizing: border-box;
+    border: 7px solid #FFFFFF;
+    border-radius: 50%;
+    font-weight: 400;
+    font-size: 30px;
+    color: #FFFFFF;
+    font-family: 'Cookie', cursive;
+    position: absolute;
+    top: 207px;
+    left: 130px;
+}
+
+.menu-page-content-dish-price:hover {
+    transform: scale(1.1);
+}
+
+.menu-page-content-dish-title {
+    margin-top: 16px;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #000000;
+}
+
+.menu-page-content-dish-description {
+    margin-top: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+
+.menu-page-content-dish-button {
+    margin-top: 34px;
+}
+
+.menu-page-content-dish-btn {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 14px 68px;
+    background-color: #D67E34;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+}
+
+.menu-page-content-dish-btn:hover {
+    background-color: #894B17;
+}
