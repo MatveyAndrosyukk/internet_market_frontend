@@ -1,14 +1,17 @@
-import React, {FC} from 'react';
+import React from 'react';
 
 interface ModalProps{
     active: boolean,
     setActive: React.Dispatch<boolean>,
+    activeWhenClicked: boolean
     children: React.ReactNode
 }
 
-const Modal: React.FC<ModalProps> = ({active, setActive, children}) => {
+const Modal: React.FC<ModalProps> = ({active, setActive, activeWhenClicked, children}) => {
     return (
-        <div className={active ? 'modal active' : 'modal'} onClick={() => setActive(false  )}>
+        <div className={active ? 'modal active' : 'modal'}
+             onClick={() => setActive(activeWhenClicked)}
+        >
             <div className={active ? 'modal-content active' : 'modal-content'} onClick={e => e.stopPropagation()}>
                 {children}
             </div>

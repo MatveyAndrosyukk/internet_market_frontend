@@ -1,31 +1,49 @@
-import React, {useState} from 'react';
-import './static/css/App.css';
-import './static/css/History.css';
-import './static/css/Navbar.css';
-import './static/css/BookTable.css';
-import './static/css/Cards.css';
-import './static/css/Menu.css';
-import './static/css/MenuPage.css';
+import React, {useEffect, useState} from 'react';
+import './App.css';
+import './components/pages/greeting_page/history/History.css';
+import './components/pages/greeting_page/navbar/Navbar.css';
+import './components/UI/footer/Footer.css';
+import './components/pages/greeting_page/history/cards/Cards.css';
+import './components/pages/full_menu_page/navbar/MenuNavbar.css';
+import './components/pages/greeting_page/cooks/Cooks.css';
+import './components/pages/greeting_page/menu/Menu.css';
 import './components/UI/modal/Modal.css';
-import MenuPage from "./components/pages/MenuPage";
-import GreetingPage from "./components/pages/GreetingPage";
-import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
-import {routes} from "./router/Routes";
+import './components/pages/cart_page/CartPage.css'
+import './components/pages/cart_page/body/modal/OrderDishModal.css'
+import './components/pages/cart_page/body/CartBody.css'
+import './components/pages/full_menu_page/body/MenuBody.css'
+import './components/pages/cart_page/body/table/CartBodyTable.css'
+import './components/UI/modal/info-modal/InfoModal.css'
+import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./router/AppRouter";
-import {AuthContext} from "./context/context";
+import {GlobalContext} from "./context/context";
+import {cartMock, dishesMock, tablesMock} from "./data/store";
+import {IDish, ITable} from "./types/types";
 
 
 const App = () => {
-    const [isAuth, setIsAuth] = useState<boolean>(false);
+    const [isAuth, setIsAuth] = useState<boolean>(false)
+    const [tables, setTables] = useState<ITable[]>(tablesMock)
+    const [dishes, setDishes] = useState<IDish[]>(dishesMock)
+    const [cart, setCart] = useState<IDish[]>(cartMock)
+
+    useEffect(() => {
+        if (localStorage.getItem('auth')){
+            setIsAuth(true)
+        }
+    }, [])
+
     return (
-        <AuthContext.Provider value={{
-            isAuth,
-            setIsAuth
+        <GlobalContext.Provider value={{
+            isAuth, setIsAuth,
+            dishes, setDishes,
+            cart, setCart,
+            tables, setTables
         }}>
-            <BrowserRouter>
-                <AppRouter/>
-            </BrowserRouter>
-        </AuthContext.Provider>
+                <BrowserRouter>
+                    <AppRouter/>
+                </BrowserRouter>
+        </GlobalContext.Provider>
     );
 };
 

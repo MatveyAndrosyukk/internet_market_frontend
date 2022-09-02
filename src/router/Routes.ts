@@ -1,6 +1,6 @@
-import GreetingPage from "../components/pages/GreetingPage";
-import MenuPage from "../components/pages/MenuPage";
-import React, {FC} from "react";
+import GreetingPage from "../components/pages/greeting_page/GreetingPage";
+import Menu from "../components/pages/greeting_page/menu/Menu";
+import {FC} from "react";
 
 interface route{
     path: string,
@@ -9,5 +9,5 @@ interface route{
 
 export const routes:route[] = [
     {path: 'greetings', element: GreetingPage},
-    {path: 'menu', element: MenuPage}
+    {path: 'menu', element: Menu}
 ]

@@ -1,0 +1,37 @@
+.image_loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+    position: relative;
+}
+.image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.file input {
+    display: none;
+}
+
+.file label {
+    position: absolute;
+    bottom: 26px;
+    right: 83px;
+    background-color: #ff7400;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.file label:hover {
+    background-color: #894b17;
+}
+
+.file label i {
+    font-size: 30px;
+    color: white;
+}

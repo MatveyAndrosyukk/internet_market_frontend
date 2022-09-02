@@ -1,0 +1,227 @@
+.menu-page {
+    background-image: url("../../../../static/images/menu_page_bg.png");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.menu-page-title{
+    margin-top: 98px;
+    display: flex;
+}
+.menu-page-content-text {
+    text-align: center;
+    justify-self: center;
+}
+
+
+.menu-page-prev-page {
+    margin-top: 40px;
+    width: 70px;
+    height: 70px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.menu-page-prev-page-link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-page-prev-page:hover {
+    transform: scale(1.1);
+}
+
+.menu-page-content-text-link {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: #FFFFFF;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.menu-page-all-dishes-link {
+    margin-top: 50px;
+}
+
+.menu-page-all-dishes-link-btn {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 14px 5px;
+    background-color: #D67E34;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+}
+
+.menu-page-all-dishes-link-btn:hover {
+    background-color: #894B17;
+}
+
+
+.menu-page-content-dishes {
+    display: flex;
+    justify-content: center;
+    margin-top: 138px;
+    position: relative;
+}
+
+.menu-page-next-dish {
+    user-select: none;
+    width: 40px;
+    height: 40px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-page-next-dish:hover {
+    transform: scale(1.1);
+}
+
+.menu-page-prev-dish {
+    user-select: none;
+    width: 40px;
+    height: 40px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-page-prev-dish:hover {
+    transform: scale(1.1);
+}
+
+.dishes-list {
+    display: flex;
+    align-items: center;
+}
+.menu-page-content-dish {
+    box-shadow: 5px 5px 40px 15px;
+    margin-right: 30px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:  350px;
+    height: 510px;
+    background-color: #FFFFFF;
+    padding: 0 15px;
+    box-sizing: border-box;
+    transition: transform 0.2s linear;
+}
+
+.disabled{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-page-content-dish-image {
+    position: relative;
+    margin-top: auto;
+    user-select: none;
+}
+
+.menu-page-content-dish-img {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+}
+
+.menu-page-content-dish-price{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #D67E34;
+    box-sizing: border-box;
+    border: 7px solid #FFFFFF;
+    border-radius: 50%;
+    font-weight: 400;
+    font-size: 30px;
+    color: #FFFFFF;
+    font-family: 'Cookie', cursive;
+    position: absolute;
+    top: 132px;
+    left: 130px;
+}
+
+.menu-page-content-dish-title {
+    text-align: center;
+    margin-top: 16px;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #000000;
+}
+
+.menu-page-content-dish-description {
+    margin-top: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    margin-bottom: auto;
+}
+
+
+.menu-page-content-dish-button {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.menu-page-content-dish-btn {
+    user-select: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 14px 68px;
+    background-color: #D67E34;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+}
+
+.menu-page-content-dish-btn:hover {
+    background-color: #894B17;
+}

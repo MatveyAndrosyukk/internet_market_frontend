@@ -1,0 +1,53 @@
+.book-section {
+    height: 33vh;
+    background-image: url("../../../static/images/book_bg_image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 104px 165px 186px;
+    box-sizing: border-box;
+}
+
+.book-section-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-section-text {
+    width: 601px;
+    height: 173px;
+}
+
+.book-section-text-big {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 52px;
+    color: #D67E34;
+}
+
+.book-section-text-small {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+.book-section-button {
+    display: flex;
+    align-items: center;
+}
+
+.book-section-btn {
+    user-select: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 14px 18px;
+    color: #FFFFFF;
+    background-color: #FF7400;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+    cursor: pointer;
+}
+
+.book-section-btn:hover {
+    background-color: #894B17;
+}

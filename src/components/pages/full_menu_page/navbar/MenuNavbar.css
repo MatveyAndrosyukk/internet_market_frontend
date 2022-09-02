@@ -1,0 +1,89 @@
+.menu-header {
+    height: 33vh;
+    background-image: url("../../../../static/images/book_bg_image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.first-line {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.first-line .menu-nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu-nav-item a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 25px;
+    transition: color 0.2s linear;
+}
+
+.menu-nav-item a:hover {
+    color: #D81D1D;
+}
+
+.second-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.second-line .buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 400px;
+}
+
+.second-line .buttons .button{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.second-line .title {
+    color: white;
+    font-family: 'Tinos', serif;
+    font-size: 80px;
+    font-weight: 400;
+    text-align: center;
+    margin-left: 400px;
+}
+
+.buttons .button a {
+    text-decoration: none;
+    color: white;
+    user-select: none;
+}
+
+.third-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.third-line .category a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 25px;
+    transition: color 0.2s linear;
+    cursor: pointer;
+}
+
+.third-line .category.underlined {
+    text-decoration: underline;
+}
+
+.third-line .category a:hover {
+    color: #D81D1D;
+}
