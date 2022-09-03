@@ -14,9 +14,6 @@ const MenuBody:FC<MenuBodyDishes> = ({dishes, title}) => {
         <div className='menu-body'>
             <div className='container'>
                 <div className='menu-body-content'>
-                    <div className='title'>
-                        {title}
-                    </div>
                     <div className='dishes'>
                         {dishes.map(dish =>
                             <DishItem dish={dish}/>

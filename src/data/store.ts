@@ -12,6 +12,7 @@ export const dishesMock: IDish[] = [
         title: 'Биф-бургер',
         description: 'Рваная говядина, трюфельный майонез, маринованные огурчики, салат Коул Слоу, бекон  (275 гр)',
         price: 7,
+        totalPrice: 7,
         category: 'Еда'
     },
     {
@@ -21,6 +22,7 @@ export const dishesMock: IDish[] = [
         title: 'Чикенбургер',
         description: 'Котлета из цыпленка, жаренный сыр, азиатский соус, маринованный огурец, бекон  (310 гр)',
         price: 6,
+        totalPrice: 6,
         category: 'Еда'
     },
     {
@@ -30,6 +32,7 @@ export const dishesMock: IDish[] = [
         title: 'Бургер RIB RAW',
         description: 'Говяжья котлета, томат, Чеддер, вишневый BBQ, Халапеньо, маринованный огурец, бекон  (360 гр)',
         price: 9,
+        totalPrice: 9,
         category: 'Еда'
     },
     {
@@ -39,6 +42,7 @@ export const dishesMock: IDish[] = [
         title: 'Пастрами сэндвич',
         description: 'Квашеная капуста, Чеддер, пастрами соус, серый хлеб и огурцы на бурбоне (350 гр)',
         price: 6,
+        totalPrice: 6,
         category: 'Еда'
     },
     {
@@ -48,6 +52,7 @@ export const dishesMock: IDish[] = [
         title: 'Вегетарианский бургер',
         description: 'Вегетарианская котлета со вкусом говядины, луковый конфитюр, томат, Чеддер по вашему желанию, вишневый BBQ, Халапеньо, маринованный огурец (360 гр)',
         price: 5,
+        totalPrice: 5,
         category: 'Еда'
     },
     {
@@ -57,6 +62,7 @@ export const dishesMock: IDish[] = [
         title: 'Рибай стейк',
         description: 'Самый вкусный отруб бычка. Локальная говядина, травяной откорм (215/50 гр)',
         price: 20,
+        totalPrice: 20,
         category: 'Еда'
     },
     {
@@ -66,6 +72,7 @@ export const dishesMock: IDish[] = [
         title: 'Лосось-гриль',
         description: 'Филе лосося на гриле со сливочным соусом и припущенным шпинатом (210 гр)',
         price: 23,
+        totalPrice: 23,
         category: 'Еда'
     },
     {
@@ -75,6 +82,7 @@ export const dishesMock: IDish[] = [
         title: 'Сибас на гриле',
         description: 'Приготовленный на гриле сибас с легким салатом и соусом Алабама (420 гр)',
         price: 25,
+        totalPrice: 25,
         category: 'Еда'
     },
     {
@@ -84,6 +92,7 @@ export const dishesMock: IDish[] = [
         title: 'Копченый камамбер',
         description: '40 минут в коптильне. Классический сыр в белой плесени, подается с картофельным паем (160 гр)',
         price: 15,
+        totalPrice: 15,
         category: 'Еда'
     },
     {
@@ -93,6 +102,7 @@ export const dishesMock: IDish[] = [
         title: 'Стейк из цветной капусты',
         description: 'Цветная капуста Су-вид с трюфельным майонезом, ароматным маслом и огурцами на бурбоне (245 гр)',
         price: 10,
+        totalPrice: 10,
         category: 'Еда'
     },
     {
@@ -102,6 +112,7 @@ export const dishesMock: IDish[] = [
         title: 'Азиатский куриный бульон',
         description: 'Куриный бульон с лапшой Удон, цыпленком Су-вид и яйцом (360 гр)',
         price: 10,
+        totalPrice: 10,
         category: 'Еда'
     },
 
@@ -112,6 +123,7 @@ export const dishesMock: IDish[] = [
         title: 'Лимонад Мохито',
         description: 'Маленький 300 мл, Средний 470 мл',
         price: 4,
+        totalPrice: 4,
         category: 'Напитки'
     },
     {
@@ -121,6 +133,7 @@ export const dishesMock: IDish[] = [
         title: 'Айс-кофе Карамель',
         description: 'Маленький 300 мл, Средний 470 мл',
         price: 5,
+        totalPrice: 5,
         category: 'Напитки'
     },
     {
@@ -130,6 +143,7 @@ export const dishesMock: IDish[] = [
         title: 'Кофе Двойной Эспрессо',
         description: 'Маленький 300 мл, Средний 470 мл',
         price: 5,
+        totalPrice: 5,
         category: 'Напитки'
     },
     {
@@ -139,6 +153,7 @@ export const dishesMock: IDish[] = [
         title: 'Кофе Глясе',
         description: 'Маленький 300 мл, Средний 470 мл',
         price: 5,
+        totalPrice: 5,
         category: 'Напитки'
     },
     {
@@ -148,6 +163,7 @@ export const dishesMock: IDish[] = [
         title: 'Кофе Американо',
         description: 'Маленький 300 мл, Средний 470 мл',
         price: 5,
+        totalPrice: 5,
         category: 'Напитки'
     },
     {
@@ -157,6 +173,7 @@ export const dishesMock: IDish[] = [
         title: 'Кофе Капучино',
         description: 'Маленький 300 мл, Средний 470 мл',
         price: 5,
+        totalPrice: 5,
         category: 'Напитки'
     },
     {
@@ -166,6 +183,7 @@ export const dishesMock: IDish[] = [
         title: 'Coca-Cola',
         description: 'Маленькая порция, Средняя порция, Большая порция',
         price: 5,
+        totalPrice: 5,
         category: 'Напитки'
     },
     {
@@ -175,6 +193,7 @@ export const dishesMock: IDish[] = [
         title: 'Милкшейк Клубника',
         description: 'Маленькая порция, Средняя порция, Большая порция',
         price: 6,
+        totalPrice: 6,
         category: 'Напитки'
     },
     {
@@ -184,6 +203,7 @@ export const dishesMock: IDish[] = [
         title: 'Милкшейк Попкорн',
         description: 'Маленькая порция, Средняя порция, Большая порция',
         price: 6,
+        totalPrice: 6,
         category: 'Напитки'
     },
     {
@@ -193,6 +213,7 @@ export const dishesMock: IDish[] = [
         title: 'Томаты со страчетеллой и персиком',
         description: 'Узбекские сладкие томаты, страчателла, тартар из персика и домашнее Песто (260 гр)',
         price: 6,
+        totalPrice: 6,
         category: 'Закуски'
     },
     {
@@ -202,6 +223,7 @@ export const dishesMock: IDish[] = [
         title: 'Картофель по-техасски',
         description: 'Картофель фри с сырным и чесночным соусами и острым перцем Халапеньо  (250 гр)',
         price: 4,
+        totalPrice: 4,
         category: 'Закуски'
     },
     {
@@ -211,6 +233,7 @@ export const dishesMock: IDish[] = [
         title: 'Лосось и персиковый тартар',
         description: 'Гравлакс из лосося, цитрусовый соус, тартар из персиков и сладкого лука (140 гр)',
         price: 10,
+        totalPrice: 10,
         category: 'Закуски'
     },
     {
@@ -220,6 +243,7 @@ export const dishesMock: IDish[] = [
         title: 'Вителло Тоннато',
         description: 'Копченый говяжий язык и оригинальный соус с тунцом и каперсами (165 гр)',
         price: 15,
+        totalPrice: 15,
         category: 'Закуски'
     },
     {
@@ -229,6 +253,7 @@ export const dishesMock: IDish[] = [
         title: 'Креветки-фри',
         description: 'Тигровые креветки в темпуре с кисло-сладким соусом (230 гр)',
         price: 10,
+        totalPrice: 10,
         category: 'Закуски'
     },
     {
@@ -238,6 +263,7 @@ export const dishesMock: IDish[] = [
         title: 'Батат-фри с соусом Алабама',
         description: 'Сладкий картофель подается с белым барбекю соусом (200 гр)',
         price: 15,
+        totalPrice: 15,
         category: 'Закуски'
     },
     {
@@ -247,6 +273,7 @@ export const dishesMock: IDish[] = [
         title: 'Легкий салат',
         description: 'Салат со свежими овощами и руколой  (220 гр)',
         price: 7,
+        totalPrice: 7,
         category: 'Закуски'
     },
     {
@@ -256,6 +283,7 @@ export const dishesMock: IDish[] = [
         title: 'Цезарь',
         description: 'Салат, сыр, яйцо, сладкие томаты, гренки с традиционным соусом Цезарь (160 гр)',
         price: 8,
+        totalPrice: 8,
         category: 'Закуски'
     },
     {
@@ -265,6 +293,7 @@ export const dishesMock: IDish[] = [
         title: 'Цезарь с лососем',
         description: 'Салат Ромен, яйцо, сладкие томаты, гренки, малосольным лососем с традиционным соусом Цезарь (200гр)',
         price: 10,
+        totalPrice: 10,
         category: 'Закуски'
     },
     {
@@ -274,6 +303,7 @@ export const dishesMock: IDish[] = [
         title: 'Цезарь с цыпленком',
         description: 'Салат Ромен, яйцо, сладкие томаты, гренки, цыпленок Су-вид, традиционный соус Цезарь (220 гр)',
         price: 8,
+        totalPrice: 8,
         category: 'Закуски'
     }
 ]

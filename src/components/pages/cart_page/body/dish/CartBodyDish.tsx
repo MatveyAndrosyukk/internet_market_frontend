@@ -1,56 +1,42 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useContext, useEffect, useMemo, useState} from 'react';
 // @ts-ignore
 import manu_page_hamburger from "../../../../../static/images/menu_hamburger.png";
-import {IDish} from "../../../../../types/types";
+import {IDish, ITotalInfo} from "../../../../../types/types";
 import {GlobalContext, GlobalContextValues} from "../../../../../context/context";
-import dishes from "../../../greeting_page/menu/dishes/Dishes";
-
 
 interface CartBodyDish {
     dish: IDish,
-    deleteDish: (dish:IDish) => void
+    deleteDish: (dish: IDish) => void,
+    totalInfo: ITotalInfo,
+    setTotalInfo: React.Dispatch<ITotalInfo>
 }
 
-const CartBodyDish:FC<CartBodyDish> = ({dish, deleteDish}) => {
-    const {setCart, cart} = useContext<GlobalContextValues>(GlobalContext)
-    const [index, setIndex] = useState<number>(0)
+const CartBodyDish: FC<CartBodyDish> = ({dish, deleteDish, totalInfo, setTotalInfo}) => {
+    const {cart} = useContext<GlobalContextValues>(GlobalContext)
+    const [dishItem, setDishItem] = useState<IDish>(dish)
 
-    const addCount = ():void => {
-        setIndex(cart.indexOf(dish))
-        console.log(cart)
-        console.log(dish)
-        console.log(index)
-        // let newCart = cart.splice(index, 0,
-        //     {id: dish.id,
-        //         title: dish.title,
-        //         image: dish.image,
-        //         count: dish.count+1,
-        //         description: dish.description,
-        //         category: dish.category,
-        //         price:dish.price
-        //     })
-        // console.log(cart)
-        // console.log(newCart)
-        // setCart(newCart)
+    const addCount = (): void => {
+        setDishItem({...dishItem, count: dishItem.count + 1, totalPrice: dishItem.totalPrice + dishItem.price})
+        setTotalInfo({price: totalInfo.price + dishItem.price, count: totalInfo.count + 1})
     }
 
     return (
         <div className='cart-dish'>
             <div className='cart-dish-image'>
-                <img src={dish.image} alt='dish'/>
+                <img src={dishItem.image} alt='dish'/>
             </div>
             <div className='cart-dish-description'>
                 <div className='description-item'>
-                    {dish.title}
+                    {dishItem.title}
                 </div>
                 <div className='description-item'>
-                    Количество: {dish.count} шт.
+                    Количество: {dishItem.count} шт.
                 </div>
                 <div className='description-item'>
-                    {dish.price} руб.
+                    {dishItem.totalPrice} руб.
                 </div>
                 <div className='plus-count' onClick={addCount}>
-                        <span>+</span>
+                    <span>+</span>
                 </div>
                 <div className='cart-dish-button' onClick={() => deleteDish(dish)}>
                     <a>УБРАТЬ</a>

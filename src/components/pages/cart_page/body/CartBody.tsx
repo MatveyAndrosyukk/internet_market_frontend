@@ -1,5 +1,5 @@
-import React, {FC, useContext, useState} from 'react';
-import {IDish} from "../../../../types/types";
+import React, {FC, useContext, useEffect, useState} from 'react';
+import {IDish, ITotalInfo} from "../../../../types/types";
 import CartBodyDish from "./dish/CartBodyDish";
 import OrderDishModal from "./modal/OrderDishModal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
@@ -23,18 +23,30 @@ const CartBody: FC<CartBodyProps> = (
         setRegistrationModal
     }
 ) => {
-    const {isAuth, cart, setCart, tables} = useContext<GlobalContextValues>(GlobalContext)
+    const {isAuth, cart, setCart} = useContext<GlobalContextValues>(GlobalContext)
     const [loginModal, setLoginModal] = useState<boolean>(false)
     const [infoModal, setInfoModal] = useState<boolean>(false)
+    const [totalInfo, setTotalInfo] = useState<ITotalInfo>({price: 0, count: 0})
+
+    useEffect(() => {
+        let totalPrice = countTotalPrice();
+        setTotalInfo({price: totalPrice, count: cart.length})
+    }, [])
+
+    const countTotalPrice = (): number => {
+        let sum = 0
+        cart.forEach(cartItem => sum += cartItem.price)
+        return sum
+    }
 
     const orderDish = () => {
-        if (cart.length){
+        if (cart.length) {
             if (isAuth) {
                 setModal(true)
             } else {
                 setRegistrationModal(true)
             }
-        }else {
+        } else {
             setInfoModal(true)
             setTimeout(() => {
                 setInfoModal(false)
@@ -46,12 +58,6 @@ const CartBody: FC<CartBodyProps> = (
         setCart(cart.filter(cartDish => cartDish.id != dish.id))
     }
 
-    const countCartDishes = (): number => {
-        let sum: number = 0
-        cart.forEach(dish => sum += dish.price)
-        return sum
-    }
-
     return (
         <div className='cart-body'>
             <div className='container'>
@@ -59,14 +65,14 @@ const CartBody: FC<CartBodyProps> = (
                     <div className='cart-body-content-first-line'>
                         <div className='cart-info'>
                             <div className='cart-body-content-total-dishes'>
-                                Всего товаров: <span>{cart.length} шт.</span>
+                                Всего товаров: <span>{totalInfo.count} шт.</span>
                             </div>
                             <div className='cart-body-content-total-price'>
-                                Общая сумма: <span>{countCartDishes()} руб.</span>
+                                Общая сумма: <span>{totalInfo.price} руб.</span>
                             </div>
                         </div>
                         <div className='menu-page-content-dish-button'>
-                            <a className='menu-page-content-dish-btn' onClick={orderDish}>Сделать заказ</a>
+                            <a className='menu-page-content-dish-btn' onClick={orderDish}>СДЕЛАТЬ ЗАКАЗ</a>
                         </div>
                     </div>
                     <div className='cart-body-content-title'>
@@ -74,12 +80,13 @@ const CartBody: FC<CartBodyProps> = (
                     </div>
                     <div className='dishes'>
                         {cart.map(dish =>
-                            <CartBodyDish dish={dish} deleteDish={deleteFromCart}/>
+                            <CartBodyDish totalInfo={totalInfo} setTotalInfo={setTotalInfo} dish={dish}
+                                          deleteDish={deleteFromCart}/>
                         )}
                     </div>
                 </div>
             </div>
-            <OrderDishModal cart={cart}
+            <OrderDishModal totalInfo={totalInfo}
                             modal={modal}
                             setModal={setModal}
                             setRegistrationModal={setRegistrationModal}
@@ -89,7 +96,7 @@ const CartBody: FC<CartBodyProps> = (
                         setRegistrationModal={setRegistrationModal}
             />
             <RegistrationModal modal={registrationModal} setModal={setRegistrationModal} setLoginModal={setLoginModal}/>
-            <InfoModal  modal={infoModal} setModal={setInfoModal}>
+            <InfoModal modal={infoModal} setModal={setInfoModal}>
                 <label>Вы не добавили в <span>корзину</span> ничего, нам нечего вам доставлять.</label>
             </InfoModal>
         </div>

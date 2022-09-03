@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, useContext, useState} from 'react';
 import Modal from "../../../../UI/modal/Modal";
-import {IDish} from "../../../../../types/types";
+import {IDish, ITotalInfo} from "../../../../../types/types";
 import InfoModal from "../../../../UI/modal/info-modal/InfoModal";
 import {GlobalContext, GlobalContextValues} from "../../../../../context/context";
 
@@ -8,10 +8,17 @@ interface OrderDishModal {
     modal: boolean,
     setModal: React.Dispatch<boolean>,
     setRegistrationModal: React.Dispatch<boolean>,
-    cart: IDish[]
+    totalInfo: ITotalInfo,
 }
 
-const OrderDishModal:FC<OrderDishModal> = ({modal, setModal, setRegistrationModal,cart}) => {
+const OrderDishModal: FC<OrderDishModal> = (
+    {
+        modal,
+        setModal,
+        setRegistrationModal,
+        totalInfo
+    }
+) => {
     const [address, setAddress] = useState<string>('')
     const [cardNumber, setCardNumber] = useState<string>('')
     const [infoModal, setInfoModal] = useState<boolean>(false)
@@ -26,12 +33,6 @@ const OrderDishModal:FC<OrderDishModal> = ({modal, setModal, setRegistrationModa
         setCardNumber(cardCode)
     }
 
-    const countCartDishes = (): number => {
-        let sum: number = 0
-        cart.forEach(dish => sum += dish.price)
-        return sum
-    }
-
     const orderDishes = (e: React.FormEvent<HTMLButtonElement>): void => {
         e.preventDefault();
         setModal(false)
@@ -39,7 +40,7 @@ const OrderDishModal:FC<OrderDishModal> = ({modal, setModal, setRegistrationModa
         setTimeout(() => {
             setInfoModal(false)
             setCart([])
-        },3000)
+        }, 3000)
     }
 
     return (
@@ -51,10 +52,10 @@ const OrderDishModal:FC<OrderDishModal> = ({modal, setModal, setRegistrationModa
                 <form action='#'>
                     <div className='data'>
                         <div>
-                            <label>Сумма заказа: <span>{countCartDishes()} руб.</span></label>
+                            <label>Сумма заказа: <span>{totalInfo.price} руб.</span></label>
                         </div>
                         <div>
-                            <label>Всего блюд: <span>{cart.length}шт.</span></label>
+                            <label>Всего блюд: <span>{totalInfo.count} шт.</span></label>
                         </div>
                     </div>
                     <div className='data'>
@@ -62,7 +63,8 @@ const OrderDishModal:FC<OrderDishModal> = ({modal, setModal, setRegistrationModa
                         <input type='text' value={address} onChange={e => setAddress(e.target.value)}/>
                     </div>
                     <div className='data'>
-                        <label>Укажите номер вашей карточки <div className='card-code'>(xxxx-xxxx-xxxx-xxxx)</div></label>
+                        <label>Укажите номер вашей карточки <div className='card-code'>(xxxx-xxxx-xxxx-xxxx)</div>
+                        </label>
                         <input type='text' value={cardNumber} onChange={inputCardNumber}/>
                     </div>
                     <div className='btn'>

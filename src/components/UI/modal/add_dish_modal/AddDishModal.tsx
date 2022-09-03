@@ -17,13 +17,13 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
     const {dishes, setDishes} = useContext<GlobalContextValues>(GlobalContext)
     const [infoModal, setInfoModal] = useState<boolean>(false)
     const [dish, setDish] = useState<IDish>(
-        {id: 0, image: '', count: 0, price: 0, title: '', description: '', category: ''}
+        {id: 0, image: '', count: 0, price: 0, totalPrice: 0, title: '', description: '', category: ''}
     )
 
     const addDishToMenu = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
 
-        setDish({...dish, id:Date.now()})
+        setDish({...dish, id:Date.now(), totalPrice: dish.price})
         setDishes([...dishes, dish])
 
         setModal(false)
@@ -32,7 +32,7 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
             setInfoModal(false)
         }, 2000)
 
-        setDish({id: 0, image: '', count: 0, price: 0, title: '', description: '', category: ''})
+        setDish({id: 0, image: '', count: 0, price: 0, totalPrice: 0, title: '', description: '', category: ''})
     }
 
     return (

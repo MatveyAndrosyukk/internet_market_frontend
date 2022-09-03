@@ -3,6 +3,7 @@ export interface IDish {
     image: string,
     count: number,
     price:number,
+    totalPrice:number,
     title:string,
     description:string,
     category: string
@@ -26,4 +27,9 @@ export interface ITable {
 export interface IOption{
     name: string,
     value: string
+}
+
+export interface ITotalInfo {
+    price: number,
+    count: number
 }

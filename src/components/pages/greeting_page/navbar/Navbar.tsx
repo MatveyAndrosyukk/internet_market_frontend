@@ -11,6 +11,8 @@ import RegistrationModal from "../../../UI/modal/registration-modal/Registration
 import {Link} from "react-router-dom";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
+// @ts-ignore
+import classes from "./Navbar.module.css"
 
 interface NavbarProps{
     modal: boolean,
@@ -37,59 +39,59 @@ const Navbar:FC<NavbarProps> = ({modal, setModal, registrationModal, setRegistra
     }
 
     return (
-        <div className='header'>
+        <div className={classes.header}>
             <div className='container'>
-                <div className='header-line'>
-                    <div className='header-logo'>
+                <div className={classes.header_line}>
+                    <div className={classes.header_logo}>
                         <img alt='Logo' src={logo}/>
                     </div>
-                    <div className='nav'>
-                        <Link className='nav-item' to={'/greetings'}>ГЛАВНАЯ</Link>
-                        <a className='nav-item' href='#menu'>МЕНЮ</a>
-                        <a className='nav-item' href='#hist'>О НАС</a>
+                    <div className={classes.nav}>
+                        <Link className={classes.nav_item} to={'/greetings'}>ГЛАВНАЯ</Link>
+                        <a className={classes.nav_item} href='#menu'>МЕНЮ</a>
+                        <a className={classes.nav_item} href='#hist'>О НАС</a>
                         {isAuth
-                        ? <a className='nav-item' href='#' onClick={logout}>ВЫЙТИ</a>
-                        : <a className='nav-item' href='#' onClick={() => setLoginModal(true)}>ВОЙТИ</a>}
+                        ? <a className={classes.nav_item} href='#' onClick={logout}>ВЫЙТИ</a>
+                        : <a className={classes.nav_item} href='#' onClick={() => setLoginModal(true)}>ВОЙТИ</a>}
                     </div>
-                    <div className='cart'>
+                    <div className={classes.cart}>
                         <Link to={'/cart'}>
-                            <img className='cart-img' alt='cart' src={cart}/>
+                            <img className={classes.cart_img} alt='cart' src={cart}/>
                         </Link>
                     </div>
-                    <div className='phone'>
-                        <div className='phone-holder'>
-                            <div className='phone-img'>
+                    <div className={classes.phone}>
+                        <div className={classes.phone_holder}>
+                            <div className={classes.phone_img}>
                                 <img alt='phone' src={phone}/>
                             </div>
-                            <div className='phone-number'>
-                                <a className='phone-number-link' href='#'>
+                            <div className={classes.phone_number}>
+                                <a className={classes.phone_number_link} href='#'>
                                     +375-25-519-84-74
                                 </a>
                             </div>
                         </div>
-                        <div className='phone-text'>
+                        <div className={classes.phone_text}>
                             Свяжитесь с нами для <br/>
                             бронирования
                         </div>
                     </div>
-                    <div className='btn'>
-                        <a className='button' onClick={bookTable}>ЗАКАЗ СТОЛИКА</a>
+                    <div className={classes.btn}>
+                        <a className={classes.button} onClick={bookTable}>ЗАКАЗ СТОЛИКА</a>
                     </div>
-                    <div className='header-down-btn'>
-                        <a className='header-down-button' onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</a>
+                    <div className={classes.header_down_btn}>
+                        <a className={classes.header_down_button} onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</a>
                     </div>
                 </div>
-                <div className='header-down'>
-                    <div className='header-title'>
+                <div className={classes.header_down}>
+                    <div className={classes.header_title}>
                         Добро пожаловать в
-                        <div className='header-subtitle'>
+                        <div className={classes.header_subtitle}>
                             Наш ресторан
                         </div>
-                        <div className='header-suptitle'>
+                        <div className={classes.header_suptitle}>
                             ДОМ ЛУЧШЕЙ ЕДЫ
                         </div>
-                        <div className='header-down-btn'>
-                            <Link className='header-down-button' to={'/menu'}>МЕНЮ</Link>
+                        <div className={classes.header_down_btn}>
+                            <Link className={classes.header_down_button} to={'/menu'}>МЕНЮ</Link>
                         </div>
                     </div>
                 </div>

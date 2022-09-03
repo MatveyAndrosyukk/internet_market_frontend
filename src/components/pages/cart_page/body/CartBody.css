@@ -23,9 +23,10 @@
     padding-left: 60px;
     font-family: 'Open Sans', sans-serif;
     font-weight: 500;
-    font-size: 26px;
+    font-size: 30px;
     padding-bottom: 10px;
-    color: #D67E34;
+    color: #ff7400;
+
 }
 
 .cart-body-content .dishes {
@@ -71,11 +72,21 @@
 }
 
 .cart-body-content-total-price span {
-    color: #D67E34;
+    color: #ff7400;
+    font-size: 30px;
 }
 
 .cart-body-content-total-dishes span {
-    color: #D67E34;
+    color: #ff7400;
+    font-size: 30px;
+}
+
+.cart-body-content-first-line .menu-page-content-dish-btn {
+    background-color: #ff7400;
+}
+
+.cart-body-content-first-line .menu-page-content-dish-btn:hover {
+    background-color: #894b17;
 }
 
 .cart-dish-description {
