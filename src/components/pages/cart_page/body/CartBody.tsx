@@ -1,12 +1,14 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
+// @ts-ignore
+import classes from "./CartBody.module.css"
 import {IDish, ITotalInfo} from "../../../../types/types";
 import CartBodyDish from "./dish/CartBodyDish";
-import OrderDishModal from "./modal/OrderDishModal";
+import OrderDishModal from "./modal/OrderModal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
-import LoginModal from "../../../UI/modal/login-modal/LoginModal";
-import RegistrationModal from "../../../UI/modal/registration-modal/RegistrationModal";
-import CartBodyTable from "./table/CartBodyTable";
-import InfoModal from "../../../UI/modal/info-modal/InfoModal";
+import LoginModal from "../../../UI/modal/login_modal/LoginModal";
+import RegistrationModal from "../../../UI/modal/registration_modal/RegistrationModal";
+import InfoModal from "../../../UI/modal/info_modal/InfoModal";
+import NavButton from "../../../UI/button/nav_button/NavButton";
 
 interface CartBodyProps {
     modal: boolean,
@@ -59,26 +61,26 @@ const CartBody: FC<CartBodyProps> = (
     }
 
     return (
-        <div className='cart-body'>
+        <div className={classes.cart_body}>
             <div className='container'>
-                <div className='cart-body-content'>
-                    <div className='cart-body-content-first-line'>
-                        <div className='cart-info'>
-                            <div className='cart-body-content-total-dishes'>
+                <div className={classes.content}>
+                    <div className={classes.first_line}>
+                        <div className={classes.cart_info}>
+                            <div className={classes.total_dishes}>
                                 Всего товаров: <span>{totalInfo.count} шт.</span>
                             </div>
-                            <div className='cart-body-content-total-price'>
+                            <div className={classes.total_price}>
                                 Общая сумма: <span>{totalInfo.price} руб.</span>
                             </div>
                         </div>
-                        <div className='menu-page-content-dish-button'>
-                            <a className='menu-page-content-dish-btn' onClick={orderDish}>СДЕЛАТЬ ЗАКАЗ</a>
-                        </div>
+                        <NavButton onClick={orderDish}>
+                            СДЕЛАТЬ ЗАКАЗ
+                        </NavButton>
                     </div>
-                    <div className='cart-body-content-title'>
+                    <div className={classes.content_title}>
                         Блюда
                     </div>
-                    <div className='dishes'>
+                    <div className={classes.dishes}>
                         {cart.map(dish =>
                             <CartBodyDish totalInfo={totalInfo} setTotalInfo={setTotalInfo} dish={dish}
                                           deleteDish={deleteFromCart}/>

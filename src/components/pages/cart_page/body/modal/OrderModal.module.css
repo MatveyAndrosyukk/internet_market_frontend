@@ -1,0 +1,101 @@
+.data label span {
+    color: #ff7400;
+    font-size: 18px;
+}
+
+.text{
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.text span{
+    color: #FF7400;
+}
+
+form{
+    margin-top: -20px;
+}
+
+.data{
+    height: 45px;
+    width: 100%;
+    margin: 60px 0;
+}
+
+.data input{
+    height: 100%;
+    width: 96.5%;
+    padding-left: 10px;
+    font-size: 17px;
+    border: 1px solid silver;
+    outline: none;
+}
+
+.data input:focus{
+    border-color: #3498db;
+    border-bottom-width: 2px;
+}
+
+.data label{
+    font-size: 18px;
+}
+
+.data span{
+    font-size: 15px;
+    color: silver;
+}
+
+.card_code{
+    font-size: 15px;
+    color: silver;
+}
+
+.button_block{
+    margin: 30px 0;
+    height: 45px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.button_block .inner{
+    height: 100%;
+    width: 300%;
+    position: absolute;
+    left: -100%;
+    background: -webkit-linear-gradient(right, #FF8C05, #FF4208, #FF8C05, #FF4208);
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.button_block:hover .inner{
+    left: 0;
+}
+
+.button_block button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.signup_link{
+    text-align: center;
+}
+
+.signup_link a{
+    color: #3498db;
+    text-decoration: none;
+
+}
+
+.signup_link a:hover{
+    text-decoration: underline;
+}

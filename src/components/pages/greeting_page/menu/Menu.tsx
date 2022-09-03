@@ -2,6 +2,8 @@ import React, {FC, useContext, useMemo, useState} from 'react';
 // @ts-ignore
 import manu_page_hamburger from "../../../../static/images/manu_page_gamburger.png";
 // @ts-ignore
+import classes from "./Menu.module.css"
+// @ts-ignore
 import menu_page_bg from "../../../../static/images/menu_page_bg.png";
 import Dishes from "./dishes/Dishes";
 import {Link} from "react-router-dom";
@@ -20,19 +22,19 @@ const Menu: FC = () => {
     }, [index])
 
     return (
-        <div className='menu-page'>
+        <div className={classes.menu}>
             <div className='container'>
-                <div className='menu-page-content'>
-                    <div className='menu-page-title'>
-                        <div id='menu' className='menu-page-content-text'>
-                            <Link className='menu-page-content-text-link' to={'/menu'}>Наше меню</Link>
+                <div className={classes.content}>
+                    <div className={classes.title}>
+                        <div id='menu' className={classes.content_text}>
+                            <Link className={classes.content_text_link} to={'/menu'}>Наше меню</Link>
                         </div>
                     </div>
-                    <div className='dishes-list'>
+                    <div className={classes.dishes_list}>
                         <div className={
                             index == 0
-                                ? 'menu-page-prev-dish disabled'
-                                : 'menu-page-prev-dish'
+                                ? [classes.prev_dish, classes.disabled].join(' ')
+                                : classes.prev_dish
                         }
                              onClick={() => setIndex(index - 1)}
                         >
@@ -41,14 +43,14 @@ const Menu: FC = () => {
                         <Dishes dishes={threeDishes}/>
                         <div className={
                             threeDishes[2]?.id === dishes[dishes.length - 1].id
-                                ? 'menu-page-next-dish disabled'
-                                : 'menu-page-next-dish'
+                                ? [classes.next_dish, classes.disabled].join(' ')
+                                : classes.next_dish
                         }
                              onClick={() => setIndex(index + 1)}
                         >
                             <span>&#8250;</span>
                         </div>
-                        <div className='menu-page-hidden'/>
+                        <div className={classes.hidden}/>
                     </div>
                 </div>
             </div>

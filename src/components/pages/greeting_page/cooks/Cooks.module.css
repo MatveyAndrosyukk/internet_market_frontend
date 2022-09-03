@@ -1,0 +1,29 @@
+.cooks {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+.title {
+    text-align: center;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: #000000;
+}
+
+.title span {
+    color: #D67E34;
+}
+
+.images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 107px;
+}
+
+.images img {
+    margin-left: 32px;
+    transition: all 1s;
+}

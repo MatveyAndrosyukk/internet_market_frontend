@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import CartNavbar from "./navbar/CartNavbar";
-import {IDish} from "../../../types/types";
 // @ts-ignore
 import manu_page_hamburger from "../../../static/images/manu_page_gamburger.png";
 import Footer from "../../UI/footer/Footer";

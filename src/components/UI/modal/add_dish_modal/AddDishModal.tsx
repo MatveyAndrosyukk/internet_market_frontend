@@ -1,8 +1,10 @@
 import React, {FC, useContext, useState} from 'react';
 import Modal from "../Modal";
-import InfoModal from "../info-modal/InfoModal";
+import InfoModal from "../info_modal/InfoModal";
 // @ts-ignore
 import addImage from '../../../../static/images/add_dish_image.png';
+// @ts-ignore
+import classes from './AddDishModal.module.css';
 import Select from "../../select/Select";
 import {IDish} from "../../../../types/types";
 import ImageLoader from "../../image_loader/ImageLoader";
@@ -38,19 +40,14 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
     return (
         <div>
             <Modal activeWhenClicked={false} active={modal} setActive={setModal}>
-                <div className='text'>
+                <div className={classes.text}>
                     Добавить <span> блюдо</span>
                 </div>
                 <form action='#'>
-                    <button type='button' onClick={() => {
-                        setDish({...dish, id: Date.now()})
-                        console.log(dish)
-                        console.log(dishes)
-                    }}>ere</button>
-                    <div className='modal-image'>
+                    <div className={classes.modal_image}>
                         <ImageLoader dish={dish} setDish={setDish}/>
                     </div>
-                    <div className='modal-select'>
+                    <div className={classes.modal_select}>
                         <label>Укажите категорию</label>
                         <div>
                             <Select value={dish.category}
@@ -65,20 +62,20 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
                                     defaultValue={'Категория'}/>
                         </div>
                     </div>
-                    <div className='data'>
+                    <div className={classes.data}>
                         <label>Укажите название</label>
                         <input type='text' value={dish.title} onChange={e => setDish({...dish, title: e.target.value})}/>
                     </div>
-                    <div className='data'>
+                    <div className={classes.data}>
                         <label>Укажите описание</label>
                         <input type='tel' value={dish.description} onChange={e => setDish({...dish, description: e.target.value})}/>
                     </div>
-                    <div className='data'>
+                    <div className={classes.data}>
                         <label>Укажите цену</label>
                         <input type='number' value={dish.price} onChange={e => setDish({...dish, price: parseInt(e.target.value)})}/>
                     </div>
-                    <div className='btn'>
-                        <div className='inner'>
+                    <div className={classes.button_block}>
+                        <div className={classes.inner}>
 
                         </div>
                         <button type='submit' onClick={e => addDishToMenu(e)}>Добавить</button>

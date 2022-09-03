@@ -1,0 +1,40 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 349px;
+    height: 328px;
+    margin-left: 31px;
+    background-color: #FFF;
+    box-shadow: 10px 10px 40px 20px #0000001A;
+    align-items: center;
+    box-sizing: border-box;
+    transition: transform 0.2s linear;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.image_block {
+    margin-top: 35px;
+}
+
+.title {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #2C2C2C;
+}
+
+.card_title span {
+    color: #BC9060;
+}
+
+.description {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #656363;
+    margin-top: 20px;
+    text-align: center;
+}

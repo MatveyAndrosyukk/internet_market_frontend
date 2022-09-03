@@ -1,0 +1,132 @@
+.menu {
+    background-image: url("../../../../static/images/menu_page_bg.png");
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.title{
+    margin-top: 98px;
+    display: flex;
+}
+.content_text {
+    text-align: center;
+    justify-self: center;
+}
+
+
+.menu_page_prev_page {
+    margin-top: 40px;
+    width: 70px;
+    height: 70px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.menu_page_prev_page_link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu_page_prev_page:hover {
+    transform: scale(1.1);
+}
+
+.content_text_link {
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 54px;
+    color: #FFFFFF;
+    text-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.menu_page_all_dishes_link {
+    margin-top: 50px;
+}
+
+.menu_page_all_dishes_link_btn {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 14px 5px;
+    background-color: #D67E34;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+}
+
+.menu_page_all_dishes_link_btn:hover {
+    background-color: #894B17;
+}
+
+.next_dish {
+    user-select: none;
+    width: 40px;
+    height: 40px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.next_dish:hover {
+    transform: scale(1.1);
+}
+
+.prev_dish {
+    user-select: none;
+    width: 40px;
+    height: 40px;
+    background-color: #D67E34;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.prev_dish:hover {
+    transform: scale(1.1);
+}
+
+.dishes_list {
+    display: flex;
+    align-items: center;
+}
+
+.disabled{
+    opacity: 0;
+    pointer-events: none;
+}

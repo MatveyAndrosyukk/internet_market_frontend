@@ -1,6 +1,9 @@
 import React, {FC, useContext} from 'react';
-import BookTableModal from "../modal/book-table-modal/BookTableModal";
+import BookTableModal from "../modal/book_table_modal/BookTableModal";
 import {GlobalContext, GlobalContextValues} from "../../../context/context";
+// @ts-ignore
+import classes from "./Footer.module.css"
+import NavButton from "../button/nav_button/NavButton";
 
 interface BookTableProps{
     modal: boolean,
@@ -21,21 +24,21 @@ const Footer:FC<BookTableProps> = ({modal, setModal, setRegistrationModal}) => {
     }
 
     return (
-        <div className='book-section'>
+        <div className={classes.footer}>
             <div className='container'>
-                <div className='book-section-line'>
-                    <div className='book-section-text'>
-                        <div className='book-section-text-big'>
+                <div className={classes.line}>
+                    <div className={classes.text}>
+                        <div className={classes.text_big}>
                             Отпразднуйте в одном из
                             самых лучших ресторанов.
                         </div>
-                        <div className='book-section-text-small'>
+                        <div className={classes.text_small}>
                             Только в этом месяце бизнес-ланч от 40 руб.
                         </div>
                     </div>
-                    <div className='book-section-button'>
-                        <a className='book-section-btn' onClick={bookTable}>ЗАКАЗ СТОЛИКА</a>
-                    </div>
+                    <NavButton onClick={bookTable}>
+                        ЗАКАЗ СТОЛИКА
+                    </NavButton>
                 </div>
             </div>
 

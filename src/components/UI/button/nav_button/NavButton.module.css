@@ -1,0 +1,21 @@
+.button_block {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    user-select: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 14px 18px;
+    color: #FFFFFF;
+    background-color: #FF7400;
+    text-decoration: none;
+    transition: background-color 0.2s linear;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #894B17;
+}

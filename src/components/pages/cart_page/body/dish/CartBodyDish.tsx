@@ -3,6 +3,8 @@ import React, {FC, useContext, useEffect, useMemo, useState} from 'react';
 import manu_page_hamburger from "../../../../../static/images/menu_hamburger.png";
 import {IDish, ITotalInfo} from "../../../../../types/types";
 import {GlobalContext, GlobalContextValues} from "../../../../../context/context";
+// @ts-ignore
+import classes from "./CartBodyDish.module.css"
 
 interface CartBodyDish {
     dish: IDish,
@@ -21,24 +23,24 @@ const CartBodyDish: FC<CartBodyDish> = ({dish, deleteDish, totalInfo, setTotalIn
     }
 
     return (
-        <div className='cart-dish'>
-            <div className='cart-dish-image'>
+        <div className={classes.cart_dish}>
+            <div className={classes.image_block}>
                 <img src={dishItem.image} alt='dish'/>
             </div>
-            <div className='cart-dish-description'>
-                <div className='description-item'>
+            <div className={classes.description}>
+                <div className={classes.description_item}>
                     {dishItem.title}
                 </div>
-                <div className='description-item'>
+                <div className={classes.description_item}>
                     Количество: {dishItem.count} шт.
                 </div>
-                <div className='description-item'>
+                <div className={classes.description_item}>
                     {dishItem.totalPrice} руб.
                 </div>
-                <div className='plus-count' onClick={addCount}>
+                <div className={classes.plus_count} onClick={addCount}>
                     <span>+</span>
                 </div>
-                <div className='cart-dish-button' onClick={() => deleteDish(dish)}>
+                <div className={classes.button_block} onClick={() => deleteDish(dish)}>
                     <a>УБРАТЬ</a>
                 </div>
             </div>

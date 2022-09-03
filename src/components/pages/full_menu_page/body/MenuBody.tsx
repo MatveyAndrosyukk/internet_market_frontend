@@ -1,22 +1,22 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
+// @ts-ignore
+import classes from "./MenuBody.module.css"
 // @ts-ignore
 import manu_page_hamburger from "../../../../static/images/manu_page_gamburger.png";
 import {IDish} from "../../../../types/types";
-import {GlobalContext, GlobalContextValues} from "../../../../context/context";
-import DishItem from "../../greeting_page/menu/dishes/DishItem";
+import Dish from "../../../UI/dish/Dish";
 
 interface MenuBodyDishes {
-    dishes:IDish[],
-    title:string
+    dishes:IDish[]
 }
-const MenuBody:FC<MenuBodyDishes> = ({dishes, title}) => {
+const MenuBody:FC<MenuBodyDishes> = ({dishes}) => {
     return (
-        <div className='menu-body'>
+        <div className={classes.body}>
             <div className='container'>
-                <div className='menu-body-content'>
-                    <div className='dishes'>
+                <div className={classes.content}>
+                    <div className={classes.dishes}>
                         {dishes.map(dish =>
-                            <DishItem dish={dish}/>
+                            <Dish dish={dish}/>
                         )}
                     </div>
                 </div>

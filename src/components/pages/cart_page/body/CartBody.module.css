@@ -1,0 +1,108 @@
+.cart_body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    margin-top: 30px;
+    box-shadow: 1px 1px 7px 1px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px 50px;
+    width: 100%;
+    height: auto;
+    background-color: #FFFFFF;
+    transition: transform 0.2s linear;
+}
+
+.content_title {
+    padding-left: 60px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    padding-bottom: 10px;
+    color: #ff7400;
+
+}
+
+.content .dishes {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 60px;
+    border-top: 3px solid black;
+    padding-top: 30px;
+}
+
+.first_line {
+    width: 90%;
+    justify-content: space-between;
+    display: flex;
+    margin-left: 50px;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    font-size: 26px;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.total_price{
+    margin-left: 30px;
+}
+
+.cart_info {
+    display: flex;
+}
+
+.total_price span {
+    color: #ff7400;
+    font-size: 30px;
+}
+
+.total_dishes span {
+    color: #ff7400;
+    font-size: 30px;
+}
+
+.first_line .menu-page-content-dish-btn {
+    background-color: #ff7400;
+}
+
+.first_line .menu-page-content-dish-btn:hover {
+    background-color: #894b17;
+}
+
+.cart_dish .cart_dish_price {
+    justify-self: center;
+    margin-left: 30px;
+    border-right: 3px solid black;
+}
+
+.content .menu_page_content_dish {
+    margin-bottom: 50px;
+    box-shadow: 1px 1px 7px 1px;
+}
+
+.tables_block {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+}
+
+.table_title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    padding-bottom: 10px;
+    color: #ff7400;
+}
+
+.tables {
+    border-top: 3px solid black;
+    padding-top: 30px;
+}
+

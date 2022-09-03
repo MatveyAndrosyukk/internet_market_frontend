@@ -2,16 +2,18 @@ import React, {FC} from 'react';
 // @ts-ignore
 import manu_page_hamburger from "../../../../../static/images/manu_page_gamburger.png";
 import {IDish} from "../../../../../types/types";
-import DishItem from "./DishItem";
+import Dish from "../../../../UI/dish/Dish";
+// @ts-ignore
+import classes from "./Dishes.module.css";
 
 interface DishesProps{
     dishes: (IDish)[]
 }
 const Dishes:FC<DishesProps> = ({dishes}) => {
     return (
-        <div className='menu-page-content-dishes'>
+        <div className={classes.dishes}>
             {dishes.map(dish =>
-                <DishItem dish={dish}/>
+                <Dish dish={dish}/>
             )}
         </div>
     );

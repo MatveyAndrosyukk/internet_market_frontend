@@ -1,5 +1,7 @@
 import React from 'react';
 // @ts-ignore
+import classes from "./Cooks.module.css"
+// @ts-ignore
 import firstCook from "../../../../static/images/cook_1.png";
 // @ts-ignore
 import secondCook from "../../../../static/images/cook_2.png";
@@ -8,20 +10,20 @@ import thirdCook from "../../../../static/images/cook_3.png";
 
 const Cooks = () => {
     return (
-        <div className='cooks'>
+        <div className={classes.cooks}>
             <div className='container'>
-                <div className='content'>
-                    <div className='title'>
+                <div className={classes.content}>
+                    <div className={classes.title}>
                         Наши <span>Повара</span>
                     </div>
-                    <div className='images'>
-                        <div className='cook-image'>
+                    <div className={classes.images}>
+                        <div className={classes.image_block}>
                             <img src={firstCook} alt='Cook'/>
                         </div>
-                        <div className='cook-image'>
+                        <div className={classes.image_block}>
                             <img src={secondCook} alt='Cook'/>
                         </div>
-                        <div className='cook-image'>
+                        <div className={classes.image_block}>
                             <img src={thirdCook} alt='Cook'/>
                         </div>
                     </div>

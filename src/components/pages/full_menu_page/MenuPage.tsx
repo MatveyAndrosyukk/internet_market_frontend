@@ -25,15 +25,15 @@ const MenuPage: FC = () => {
                 category={category}
                 setCategory={setCategory}/>
             {category.includes('Напитки')
-                ? <MenuBody title={'Напитки'} dishes={dishes.filter(dish => dish.category === 'Напитки')}/>
+                ? <MenuBody dishes={dishes.filter(dish => dish.category === 'Напитки')}/>
                 : <span/>
             }
             {category.includes('Еда')
-                ? <MenuBody title={'Еда'} dishes={dishes.filter(dish => dish.category === 'Еда')}/>
+                ? <MenuBody dishes={dishes.filter(dish => dish.category === 'Еда')}/>
                 : <span/>
             }
             {category.includes('Закуски')
-                ? <MenuBody title={'Закуски'} dishes={dishes.filter(dish => dish.category === 'Закуски')}/>
+                ? <MenuBody dishes={dishes.filter(dish => dish.category === 'Закуски')}/>
                 : <span/>
             }
             <Footer

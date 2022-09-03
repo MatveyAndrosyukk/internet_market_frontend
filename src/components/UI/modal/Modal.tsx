@@ -1,6 +1,8 @@
 import React from 'react';
+// @ts-ignore
+import classes from "./Modal.module.css";
 
-interface ModalProps{
+interface ModalProps {
     active: boolean,
     setActive: React.Dispatch<boolean>,
     activeWhenClicked: boolean
@@ -9,10 +11,10 @@ interface ModalProps{
 
 const Modal: React.FC<ModalProps> = ({active, setActive, activeWhenClicked, children}) => {
     return (
-        <div className={active ? 'modal active' : 'modal'}
-             onClick={() => setActive(activeWhenClicked)}
-        >
-            <div className={active ? 'modal-content active' : 'modal-content'} onClick={e => e.stopPropagation()}>
+        <div className={active ? [classes.modal, classes.active].join(' ') : classes.modal}
+             onClick={() => setActive(activeWhenClicked)}>
+            <div className={active ? [classes.modal_content, classes.active].join(' ') : classes.modal_content}
+                 onClick={e => e.stopPropagation()}>
                 {children}
             </div>
         </div>

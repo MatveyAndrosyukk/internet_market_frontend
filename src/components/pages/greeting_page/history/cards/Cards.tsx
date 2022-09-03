@@ -3,7 +3,9 @@ import React, {FC} from 'react';
 // @ts-ignore
 import card_image from "../../../../../static/images/card_image.png";
 import {ICard} from "../../../../../types/types";
-import Card from "./Card";
+import Card from "./card/Card";
+// @ts-ignore
+import classes from "./Cards.module.css"
 
 const Cards:FC = () => {
     const cards:ICard[] = [
@@ -13,7 +15,7 @@ const Cards:FC = () => {
     ]
 
     return (
-        <div className='cards'>
+        <div className={classes.cards}>
             {cards.map(card =>
                 <Card card={card}/>
             )}

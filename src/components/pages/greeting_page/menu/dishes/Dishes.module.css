@@ -1,0 +1,6 @@
+.dishes {
+    display: flex;
+    justify-content: center;
+    margin-top: 138px;
+    position: relative;
+}
