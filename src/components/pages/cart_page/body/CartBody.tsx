@@ -3,7 +3,7 @@ import React, {FC, useContext, useEffect, useState} from 'react';
 import classes from "./CartBody.module.css"
 import {IDish, ITotalInfo} from "../../../../types/types";
 import CartBodyDish from "./dish/CartBodyDish";
-import OrderDishModal from "./modal/OrderModal";
+import OrderDishModal from "../../../UI/modal/order_dish_modal/OrderModal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import RegistrationModal from "../../../UI/modal/registration_modal/RegistrationModal";

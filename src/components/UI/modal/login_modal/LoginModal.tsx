@@ -3,6 +3,7 @@ import React, {FC, useContext, useState} from 'react';
 import classes from './LoginModal.module.css';
 import Modal from "../Modal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
+import {IUser} from "../../../../types/types";
 
 interface LoginModalProps{
     modal: boolean,
@@ -10,12 +11,10 @@ interface LoginModalProps{
     setRegistrationModal: React.Dispatch<boolean>,
 }
 const LoginModal:FC<LoginModalProps> = ({modal, setModal, setRegistrationModal}) => {
-    const {setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
+    const {setIsAuth, users, setUser} = useContext<GlobalContextValues>(GlobalContext)
     const [emailValue, setEmailValue] = useState<string>('');
     const [passwordValue, setPasswordValue] = useState<string>('');
     const [areBadCredentials, setAreBadCredentials] = useState<boolean>(false);
-    const [userEmail] = useState<string>('user')
-    const [userPassword] = useState<string>('user')
     const openRegistrationModal = () => {
         setRegistrationModal(true)
         setModal(false)
@@ -23,12 +22,15 @@ const LoginModal:FC<LoginModalProps> = ({modal, setModal, setRegistrationModal})
 
     const logIn = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
-        if (emailValue == userEmail){
-            if (passwordValue == userPassword){
+        let user:(IUser | undefined) = users.find(user => user.email === emailValue)
+
+        if (typeof user === 'object'){
+            if (user.password == passwordValue){
                 setIsAuth(true)
                 localStorage.setItem('auth', 'true')
                 setModal(false)
                 setAreBadCredentials(false)
+                setUser(user)
             }else {
                 setAreBadCredentials(true)
             }

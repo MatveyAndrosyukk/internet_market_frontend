@@ -32,10 +32,10 @@ const CartBodyDish: FC<CartBodyDish> = ({dish, deleteDish, totalInfo, setTotalIn
                     {dishItem.title}
                 </div>
                 <div className={classes.description_item}>
-                    Количество: {dishItem.count} шт.
+                    Количество: <span>{dishItem.count} шт.</span>
                 </div>
                 <div className={classes.description_item}>
-                    {dishItem.totalPrice} руб.
+                    Цена: <span>{dishItem.totalPrice} руб.</span>
                 </div>
                 <div className={classes.plus_count} onClick={addCount}>
                     <span>+</span>

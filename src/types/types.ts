@@ -9,6 +9,20 @@ export interface IDish {
     category: string
 }
 
+export interface IUser {
+    id: number,
+    name: string,
+    email: string,
+    phone: string,
+    password: string,
+    roles: IRole[]
+}
+
+export interface IRole {
+    id: number,
+    name: string
+}
+
 export interface ICard {
     id:number,
     blackTitle:string,

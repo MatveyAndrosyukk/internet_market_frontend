@@ -1,10 +1,10 @@
 import React, {ChangeEvent, FC, useContext, useState} from 'react';
 // @ts-ignore
 import classes from "./OrderModal.module.css"
-import Modal from "../../../../UI/modal/Modal";
-import {ITotalInfo} from "../../../../../types/types";
-import InfoModal from "../../../../UI/modal/info_modal/InfoModal";
-import {GlobalContext, GlobalContextValues} from "../../../../../context/context";
+import Modal from "../Modal";
+import {ITotalInfo} from "../../../../types/types";
+import InfoModal from "../info_modal/InfoModal";
+import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 
 interface OrderModal {
     modal: boolean,

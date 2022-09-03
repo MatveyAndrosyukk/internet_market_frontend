@@ -24,11 +24,13 @@ interface GreetingNavbarProps{
 const GreetingNavbar:FC<GreetingNavbarProps> = ({modal, setModal, registrationModal, setRegistrationModal}) => {
     const [loginModal, setLoginModal] = useState<boolean>(false)
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
-    const {isAuth, setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
+    const {isAuth, setIsAuth, user, setUser} = useContext<GlobalContextValues>(GlobalContext)
 
     const logout = () => {
+        console.log(user)
         setIsAuth(false)
         localStorage.removeItem('auth')
+        setUser(null)
     }
 
     const bookTable = () => {
@@ -78,9 +80,9 @@ const GreetingNavbar:FC<GreetingNavbarProps> = ({modal, setModal, registrationMo
                     <NavButton onClick={bookTable}>
                         ЗАКАЗ СТОЛИКА
                     </NavButton>
-                    <NavButton onClick={() => setAddDishModal(true)}>
-                        ДОБАВИТЬ
-                    </NavButton>
+                    {user?.roles.find(role => role.name === 'ADMIN')
+                    ? <NavButton onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</NavButton>
+                    : <span/>}
                 </div>
                 <div className={classes.header_down}>
                     <div className={classes.title}>

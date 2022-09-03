@@ -28,12 +28,18 @@
     font-size: 26px;
 }
 
-.cart_dish .description_item {
+.description_item {
     justify-self: start;
     padding-right: 20px;
     margin-left: 30px;
     border-right: 3px solid black;
 
+}
+
+.description_item span {
+    color: #D67E34;
+    font-weight: 700;
+    font-size: 25px;
 }
 
 .plus_count {
