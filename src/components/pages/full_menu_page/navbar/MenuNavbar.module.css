@@ -1,5 +1,5 @@
 .header {
-    height: 33vh;
+    height: auto;
     background-image: url("../../../../static/images/book_bg_image.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -54,7 +54,8 @@
     font-size: 80px;
     font-weight: 400;
     text-align: center;
-    margin-left: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .buttons .button a {
@@ -67,7 +68,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 70px;
+    margin-top: 150px;
+    padding-bottom: 30px;
 }
 
 .third_line .category a {
@@ -75,7 +77,8 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 14px;
-    margin-right: 25px;
+    margin-right: 13px;
+    margin-left: 13px;
     transition: color 0.2s linear;
     cursor: pointer;
 }
@@ -88,8 +91,55 @@
     color: #D81D1D;
 }
 
-.buttons {
+.button_block {
     display: flex;
     align-items: center;
     margin-right: 400px;
+}
+
+.burger_menu {
+    display: none;
+}
+
+.burger_slide {
+    display: block;
+    position: absolute;
+}
+
+.burger_slide .nav_item {
+    margin-top: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+.nav_items .nav_item {
+    margin-top: 25px;
+}
+
+
+@media (max-width: 1503px) {
+    .first_line .nav {
+        display: none;
+    }
+
+    .burger_menu {
+        display: block;
+    }
+
+    .button_block {
+        display: none;
+    }
+
+    .second_line .title {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 833px) {
+    .first_line {
+        padding: 0 100px;
+    }
 }

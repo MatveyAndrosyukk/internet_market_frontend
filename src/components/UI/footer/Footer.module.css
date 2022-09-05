@@ -30,3 +30,40 @@
     font-size: 24px;
     color: #FFFFFF;
 }
+
+@media (max-width: 1382px) {
+    .line {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer {
+        height: 100%;
+        padding: 0;
+    }
+
+    .button_block {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 631px) {
+    .button_block {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 628px) {
+    .text {
+        width: auto;
+        height: auto;
+        text-align: center;
+    }
+    .footer {
+        height: auto;
+    }
+}
+
+

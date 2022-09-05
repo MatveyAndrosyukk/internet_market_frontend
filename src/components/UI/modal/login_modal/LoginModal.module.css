@@ -15,7 +15,7 @@ form{
 .data{
     height: 45px;
     width: 100%;
-    margin: 60px 0;
+    margin: 90px 0;
 }
 
 .data input{
@@ -42,6 +42,15 @@ form{
 }
 
 .bad_credentials.hidden {
+    opacity: 0;
+}
+
+.incorrectData {
+    font-size: 16px;
+    color: #894b17;
+}
+
+.incorrectData.hidden {
     opacity: 0;
 }
 

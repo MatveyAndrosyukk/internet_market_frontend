@@ -1,5 +1,7 @@
 .cooks {
-    height: 80vh;
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,4 +28,21 @@
 .images img {
     margin-left: 32px;
     transition: all 1s;
+}
+
+@media (max-width: 1405px) {
+    .images {
+        display: block;
+    }
+
+    .images img {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 426px) {
+    .images img {
+        width: 250px;
+    }
 }

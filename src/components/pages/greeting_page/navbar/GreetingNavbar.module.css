@@ -127,3 +127,73 @@
     background-color: #894B17;
 }
 
+.burger_menu {
+    display: none;
+}
+
+.buttons {
+    display: flex;
+}
+
+.book_table_button {
+    margin-right: 10px;
+}
+
+.burger_slide {
+    display: block;
+    position: absolute;
+}
+
+.burger_slide .nav_item {
+    margin-top: 25px;
+}
+
+.nav_items .nav_item {
+    margin-top: 25px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-height: 650px) {
+    .title {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 833px) {
+    .line {
+        padding: 0 100px;
+    }
+
+    .title {
+        margin-top: 300px;
+    }
+}
+
+@media (max-width: 1222px) {
+    .title {
+        position: static;
+    }
+
+    .header {
+        width: 100%;
+    }
+
+    .burger_menu {
+        display: block;
+    }
+
+    .nav,
+    .cart,
+    .phone,
+    .buttons
+    {
+        display: none;
+    }
+
+    .line {
+        justify-content: space-between;
+    }
+}

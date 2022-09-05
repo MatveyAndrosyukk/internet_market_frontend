@@ -39,6 +39,8 @@ form{
 .bad_credentials {
     font-size: 18px;
     color: #ff630b;
+    margin-top: 30px;
+    margin-bottom: -60px;
 }
 
 .bad_credentials.hidden {
@@ -51,9 +53,9 @@ form{
 }
 
 .button_block{
-    margin: 30px 0;
     height: 45px;
     width: 100%;
+    margin: 95px 0 30px;
     position: relative;
     overflow: hidden;
 }
@@ -97,5 +99,14 @@ form{
 
 .signup_link a:hover{
     text-decoration: underline;
+}
+
+.incorrectData {
+    font-size: 16px;
+    color: #894b17;
+}
+
+.incorrectData.hidden {
+    opacity: 0;
 }
 

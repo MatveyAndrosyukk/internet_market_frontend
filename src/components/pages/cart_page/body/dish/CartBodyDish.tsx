@@ -5,6 +5,7 @@ import {IDish, ITotalInfo} from "../../../../../types/types";
 import {GlobalContext, GlobalContextValues} from "../../../../../context/context";
 // @ts-ignore
 import classes from "./CartBodyDish.module.css"
+import DishButton from "../../../../UI/button/dish_button/DishButton";
 
 interface CartBodyDish {
     dish: IDish,
@@ -33,16 +34,21 @@ const CartBodyDish: FC<CartBodyDish> = ({dish, deleteDish, totalInfo, setTotalIn
                 </div>
                 <div className={classes.description_item}>
                     Количество: <span>{dishItem.count} шт.</span>
+                    <div className={[classes.plus_count, classes.first_plus].join(' ')} onClick={addCount}>
+                        <span>+</span>
+                    </div>
                 </div>
                 <div className={classes.description_item}>
                     Цена: <span>{dishItem.totalPrice} руб.</span>
                 </div>
-                <div className={classes.plus_count} onClick={addCount}>
+                <div className={[classes.plus_count, classes.second_plus].join(' ')} onClick={addCount}>
                     <span>+</span>
                 </div>
-                <div className={classes.button_block} onClick={() => deleteDish(dish)}>
-                    <a>УБРАТЬ</a>
-                </div>
+            </div>
+            <div className={classes.button_block}>
+                <DishButton onClick={() => deleteDish(dish)}>
+                    УБРАТЬ
+                </DishButton>
             </div>
         </div>
     );

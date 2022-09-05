@@ -97,3 +97,32 @@
     left: 281px;
     transition: transform 1s;
 }
+
+@media (max-width: 1476px) {
+    .history {
+        height: 100%;
+    }
+
+    .history_content {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 653px) {
+    .history_images{
+        display: none;
+    }
+}
+
+@media (max-width: 447px) {
+    .history_text {
+        width: 300px;
+    }
+
+    .history_description {
+        width: 300px;
+    }
+}

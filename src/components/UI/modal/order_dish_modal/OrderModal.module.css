@@ -23,6 +23,18 @@ form{
     margin: 60px 0;
 }
 
+.first_data {
+    margin-bottom: 20px;
+}
+
+.second_data {
+    margin-top: 0;
+}
+
+.last_data {
+    margin-bottom: 85px;
+}
+
 .data input{
     height: 100%;
     width: 96.5%;
@@ -51,8 +63,17 @@ form{
     color: silver;
 }
 
+.incorrectData {
+    font-size: 16px;
+    color: #894b17;
+}
+
+.incorrectData.hidden {
+    opacity: 0;
+}
+
 .button_block{
-    margin: 30px 0;
+    margin: 110px 0 30px;
     height: 45px;
     width: 100%;
     position: relative;

@@ -3,7 +3,7 @@
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -129,4 +129,54 @@
 .disabled{
     opacity: 0;
     pointer-events: none;
+}
+
+.top_arrow {
+    display: none;
+}
+
+.left_arrow {
+
+}
+
+
+@media (max-width: 1471px) {
+    .dishes_list {
+        display: block;
+        margin-top: 30px;
+    }
+
+    .content {
+        padding-left: 30px;
+    }
+
+    .prev_dish {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+    .prev_dish span{
+        content: 'v';
+    }
+
+    .next_dish {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+    }
+
+    .left_arrow {
+        display: none;
+    }
+
+    .top_arrow {
+        display: flex;
+    }
+}
+
+@media (max-width: 416px) {
+    .dishes_list {
+        width: 250px;
+    }
 }

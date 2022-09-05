@@ -1,4 +1,4 @@
-import React, {ChangeEventHandler, FC} from 'react';
+import React, {ChangeEventHandler, FC, FocusEventHandler} from 'react';
 // @ts-ignore
 import classes from './Select.module.css';
 import {IOption} from "../../../types/types";
@@ -7,11 +7,12 @@ interface SelectProps {
     options: IOption[],
     defaultValue: string,
     value: string,
-    onChange: ChangeEventHandler<HTMLSelectElement>
+    onChange: ChangeEventHandler<HTMLSelectElement>,
+    onBlur?:  FocusEventHandler<HTMLSelectElement>
 }
-const Select:FC<SelectProps> = ({options, defaultValue, value, onChange}) => {
+const Select:FC<SelectProps> = ({options, defaultValue, value, onChange, onBlur}) => {
     return (
-        <select className={classes.select} value={value} onChange={onChange}>
+        <select className={classes.select} value={value} onChange={onChange} onBlur={onBlur}>
             <option disabled value=''>{defaultValue}</option>
             {options.map(option =>
             <option value={option.value}>

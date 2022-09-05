@@ -73,9 +73,11 @@ const CartBody: FC<CartBodyProps> = (
                                 Общая сумма: <span>{totalInfo.price} руб.</span>
                             </div>
                         </div>
-                        <NavButton onClick={orderDish}>
-                            СДЕЛАТЬ ЗАКАЗ
-                        </NavButton>
+                        <div className={classes.button_block}>
+                            <NavButton onClick={orderDish}>
+                                СДЕЛАТЬ ЗАКАЗ
+                            </NavButton>
+                        </div>
                     </div>
                     <div className={classes.content_title}>
                         Блюда

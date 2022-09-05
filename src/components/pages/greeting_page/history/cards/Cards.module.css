@@ -4,3 +4,9 @@
     justify-content: center;
     margin-top: -60px;
 }
+
+@media (max-width: 1476px) {
+    .cards {
+        flex-direction: column;
+    }
+}

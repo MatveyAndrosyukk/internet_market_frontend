@@ -5,6 +5,7 @@
     padding: 30px 30px;
     display: flex;
     transition: transform 0.2s linear;
+    align-items: center;
 }
 
 .cart_dish:hover {
@@ -38,7 +39,7 @@
 
 .description_item span {
     color: #D67E34;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 25px;
 }
 
@@ -53,29 +54,96 @@
     user-select: none;
     transition: background-color 0.2s linear;
 }
+.plus_count span {
+    color: white;
+}
 
 .plus_count:hover {
     background-color: #894B17;
 }
 
 .button_block {
-    color: #fff;
-    background-color: #D67E34;
-    text-decoration: none;
-    padding: 14px 18px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s linear;
     margin-left: auto;
 }
 
-.button_block:hover {
-    background-color: #894B17;
+.first_plus {
+    display: none;
 }
 
-.button_block a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    user-select: none;
+.second_plus {
+    display: block;
+}
+
+@media (max-width: 1845px) {
+    .description_item {
+        border-right: 0;
+        padding-right: 0;
+        margin-left: 0;
+        padding-top: 20px;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        border-top: 3px solid black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cart_dish {
+        display: flex;
+        flex-direction: column;
+        width:  350px;
+        height: 510px;
+        box-sizing: border-box;
+        align-items: center;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        height: 100%;
+    }
+
+    .plus_count {
+        margin-left: 0;
+    }
+
+    .button_block {
+        margin-left: 0;
+    }
+
+    .first_plus {
+        display: block;
+    }
+
+    .second_plus {
+        display: none;
+    }
+}
+
+@media (max-width: 946px) {
+    .cart_dish{
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 534px) {
+    .cart_dish {
+        width: 230px;
+        height: auto;
+    }
+
+    .first_plus {
+        display: none;
+    }
+
+    .second_plus {
+        display: block;
+    }
+
+    .button_block {
+        margin-top: 30px;
+    }
 }

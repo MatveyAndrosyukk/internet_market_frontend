@@ -9,4 +9,17 @@
     margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+@media (max-width: 697px) {
+    .dishes {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1145px) {
+
 }

@@ -29,16 +29,17 @@ const Footer:FC<BookTableProps> = ({modal, setModal, setRegistrationModal}) => {
                 <div className={classes.line}>
                     <div className={classes.text}>
                         <div className={classes.text_big}>
-                            Отпразднуйте в одном из
-                            самых лучших ресторанов.
+                            Отпразднуйте в одном из самых лучших ресторанов.
                         </div>
                         <div className={classes.text_small}>
                             Только в этом месяце бизнес-ланч от 40 руб.
                         </div>
                     </div>
-                    <NavButton onClick={bookTable}>
-                        ЗАКАЗ СТОЛИКА
-                    </NavButton>
+                    <div className={classes.button_block}>
+                        <NavButton onClick={bookTable}>
+                            ЗАКАЗ СТОЛИКА
+                        </NavButton>
+                    </div>
                 </div>
             </div>
 

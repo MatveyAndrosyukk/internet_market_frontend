@@ -9,6 +9,10 @@ import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import {Link} from "react-router-dom";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import NavButton from "../../../UI/button/nav_button/NavButton";
+// @ts-ignore
+import burger_menu from "../../../../static/images/burger.png";
+import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
+import MenuBurger from "../../../UI/burger_menu/MenuBurger";
 
 interface MenuNavbarProps {
     modal: boolean,
@@ -20,6 +24,8 @@ interface MenuNavbarProps {
 
 const MenuNavbar: FC<MenuNavbarProps> = ({modal, setModal, registrationModal, setRegistrationModal}) => {
     const [loginModal, setLoginModal] = useState<boolean>(false)
+    const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
+    const [addDishModal, setAddDishModal] = useState<boolean>(false)
     const {isAuth, setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
 
     const bookTable = () => {
@@ -33,6 +39,7 @@ const MenuNavbar: FC<MenuNavbarProps> = ({modal, setModal, registrationModal, se
     const logout = () => {
         setIsAuth(false)
         localStorage.removeItem('auth')
+        localStorage.removeItem('ADMIN')
     }
 
     return (
@@ -61,15 +68,27 @@ const MenuNavbar: FC<MenuNavbarProps> = ({modal, setModal, registrationModal, se
                                 : <a className={classes.nav_item} href='#' onClick={() => setLoginModal(true)}>ВОЙТИ</a>}
                         </div>
                     </div>
+                    <div className={classes.burger_menu}>
+                        <MenuBurger
+                            isBurgerSlide={isBurgerSlide}
+                            setBurgerSlide={setBurgerSlide}
+                            bookTable={bookTable}
+                            setAddDishModal={setAddDishModal}
+                            isAuth={isAuth}
+                            logout={logout}
+                            setLoginModal={setLoginModal}
+                        >
+                            <div className={classes.nav_items}>
+                                <div className={classes.nav_item}>
+                                    <Link className={classes.nav_item} to={'/menu'}>МЕНЮ</Link>
+                                </div>
+                            </div>
+                        </MenuBurger>
+                    </div>
                 </div>
                 <div className={classes.second_line}>
                     <div className={classes.title}>
                         Корзина
-                    </div>
-                    <div className={classes.buttons}>
-                        <NavButton onClick={bookTable}>
-                            ЗАКАЗ СТОЛИКА
-                        </NavButton>
                     </div>
                 </div>
                 <BookTableModal modal={modal}
@@ -84,6 +103,7 @@ const MenuNavbar: FC<MenuNavbarProps> = ({modal, setModal, registrationModal, se
                                    setModal={setRegistrationModal}
                                    setLoginModal={setLoginModal}
                 />
+                <AddDishModal modal={addDishModal} setModal={setAddDishModal}/>
             </div>
         </div>
     );

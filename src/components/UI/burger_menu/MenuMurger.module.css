@@ -1,0 +1,25 @@
+.burger_slide {
+    display: block;
+    position: absolute;
+}
+
+.burger_slide .nav_item {
+    margin-top: 25px;
+}
+
+.nav_item {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 25px;
+    transition: color 0.2s linear;
+}
+
+.nav_item:hover {
+    color: #D81D1D;
+}
+
+.hidden {
+    display: none;
+}

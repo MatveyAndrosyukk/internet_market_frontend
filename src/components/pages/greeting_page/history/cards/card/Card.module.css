@@ -38,3 +38,16 @@
     margin-top: 20px;
     text-align: center;
 }
+
+@media (max-width: 1476px) {
+    .card {
+        margin-bottom: 50px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 372px) {
+    .card {
+        width: 300px;
+    }
+}

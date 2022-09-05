@@ -1,10 +1,11 @@
-import React, {ChangeEvent, FC, useContext, useState} from 'react';
+import React, {ChangeEvent, FC, useContext, useEffect, useState} from 'react';
 // @ts-ignore
 import classes from "./OrderModal.module.css"
 import Modal from "../Modal";
 import {ITotalInfo} from "../../../../types/types";
 import InfoModal from "../info_modal/InfoModal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
+import {useInput} from "../../../../hooks/useInput";
 
 interface OrderModal {
     modal: boolean,
@@ -21,8 +22,8 @@ const OrderDishModal: FC<OrderModal> = (
         totalInfo
     }
 ) => {
-    const [address, setAddress] = useState<string>('')
-    const [cardNumber, setCardNumber] = useState<string>('')
+    const address = useInput('', {isEmpty: true})
+    const cardNumber = useInput('', {isEmpty: true, isCard: ''})
     const [infoModal, setInfoModal] = useState<boolean>(false)
     const openRegistrationModal = () => {
         setModal(false)
@@ -30,13 +31,9 @@ const OrderDishModal: FC<OrderModal> = (
     }
     const {setCart} = useContext<GlobalContextValues>(GlobalContext);
 
-    const inputCardNumber = (e: ChangeEvent<HTMLInputElement>) => {
-        let cardCode = e.target.value.replaceAll(' ', '-').replace(/[^\d|-]/, '').substring(0, 19)
-        setCardNumber(cardCode)
-    }
-
     const orderDishes = (e: React.FormEvent<HTMLButtonElement>): void => {
         e.preventDefault();
+
         setModal(false)
         setInfoModal(true)
         setTimeout(() => {
@@ -52,7 +49,7 @@ const OrderDishModal: FC<OrderModal> = (
                     Сделать <span> заказ</span>
                 </div>
                 <form action='#'>
-                    <div className={classes.data}>
+                    <div className={[classes.data, classes.first_data].join(' ')}>
                         <div>
                             <label>Сумма заказа: <span>{totalInfo.price} руб.</span></label>
                         </div>
@@ -60,18 +57,34 @@ const OrderDishModal: FC<OrderModal> = (
                             <label>Всего блюд: <span>{totalInfo.count} шт.</span></label>
                         </div>
                     </div>
-                    <div className={classes.data}>
+                    <div className={[classes.data, classes.second_data].join(' ')}>
+                        <div className={(address.isDirty && (address.isEmpty))
+                            ? classes.incorrectData
+                            : [classes.incorrectData, classes.hidden].join(' ')}>
+                            Поле заполнено неверно
+                        </div>
                         <label>Укажите ваш адрес</label>
-                        <input type='text' value={address} onChange={e => setAddress(e.target.value)}/>
+                        <input type='text' value={address.value}
+                               onChange={e => address.onChange(e)}
+                               onBlur={e => address.onBlur(e)}/>
                     </div>
-                    <div className={classes.data}>
-                        <label>Укажите номер вашей карточки <div className={classes.card_code}>(xxxx-xxxx-xxxx-xxxx)</div>
+                    <div className={[classes.data, classes.last_data].join(' ')}>
+                        <div className={(cardNumber.isDirty && (cardNumber.isEmpty || cardNumber.cardError))
+                            ? classes.incorrectData
+                            : [classes.incorrectData, classes.hidden].join(' ')}>
+                            Поле заполнено неверно
+                        </div>
+                        <label>Укажите номер вашей карточки <div
+                            className={classes.card_code}>(xxxx-xxxx-xxxx-xxxx)</div>
                         </label>
-                        <input type='text' value={cardNumber} onChange={inputCardNumber}/>
+                        <input type='text' value={cardNumber.value}
+                               onChange={e => cardNumber.onChangeCard(e)}
+                               onBlur={e => cardNumber.onBlur(e)}/>
                     </div>
                     <div className={classes.button_block}>
                         <div className={classes.inner}/>
-                        <button type='submit' onClick={e => orderDishes(e)}>Доставить</button>
+                        <button disabled={!address.isInputValid || !cardNumber.isInputValid}
+                            type='submit' onClick={e => orderDishes(e)}>Доставить</button>
                     </div>
                     <div className={classes.signup_link}>
                         Not a member? <a href='#' onClick={openRegistrationModal}>Singup now</a>

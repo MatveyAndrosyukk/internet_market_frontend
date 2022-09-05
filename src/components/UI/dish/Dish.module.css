@@ -1,7 +1,7 @@
 .dish {
     box-shadow: 1px 1px 10px 1px;
     margin-right: 30px;
-    margin-left: 40px;
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -85,4 +85,11 @@
 
 .dish_button:hover {
     background-color: #894B17;
+}
+
+@media (max-width: 416px) {
+    .dish {
+        width: 250px;
+        margin-left: 0;
+    }
 }

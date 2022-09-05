@@ -33,22 +33,40 @@ const Menu: FC = () => {
                     <div className={classes.dishes_list}>
                         <div className={
                             index == 0
-                                ? [classes.prev_dish, classes.disabled].join(' ')
-                                : classes.prev_dish
+                                ? [classes.prev_dish, classes.disabled, classes.left_arrow].join(' ')
+                                : [classes.prev_dish, classes.left_arrow].join(' ')
                         }
                              onClick={() => setIndex(index - 1)}
                         >
                             <span>&#8249;</span>
                         </div>
+                        <div className={
+                            index == 0
+                                ? [classes.prev_dish, classes.disabled, classes.top_arrow].join(' ')
+                                : [classes.prev_dish, classes.top_arrow].join(' ')
+                        }
+                             onClick={() => setIndex(index - 1)}
+                        >
+                            <span>↑</span>
+                        </div>
                         <Dishes dishes={threeDishes}/>
                         <div className={
                             threeDishes[2]?.id === dishes[dishes.length - 1].id
                                 ? [classes.next_dish, classes.disabled].join(' ')
-                                : classes.next_dish
+                                : [classes.next_dish, classes.left_arrow].join(' ')
                         }
                              onClick={() => setIndex(index + 1)}
                         >
                             <span>&#8250;</span>
+                        </div>
+                        <div className={
+                            threeDishes[2]?.id === dishes[dishes.length - 1].id
+                                ? [classes.next_dish, classes.disabled].join(' ')
+                                : [classes.next_dish, classes.top_arrow].join(' ')
+                        }
+                             onClick={() => setIndex(index + 1)}
+                        >
+                            <span>↓</span>
                         </div>
                         <div className={classes.hidden}/>
                     </div>

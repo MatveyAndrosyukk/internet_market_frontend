@@ -8,3 +8,9 @@ body {
     position: relative;
 }
 
+
+@media (max-width: 828px) {
+    .container {
+        margin: auto;
+    }
+}

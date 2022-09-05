@@ -9,25 +9,29 @@ import {IDish} from "../../../types/types";
 
 interface ImageLoader {
     dish: IDish,
-    setDish: React.Dispatch<IDish>
+    setDish: React.Dispatch<IDish>,
+    image: any
 }
-const ImageLoader:FC<ImageLoader> = ({dish, setDish}) => {
-    const changeImage = (e: any):void => {
-        let url = URL.createObjectURL(e.target.files[0])
-        setDish({...dish, image: url})
-    }
+const ImageLoader:FC<ImageLoader> = ({dish, setDish, image}) => {
+    // const changeImage = (e: any):void => {
+    //     let url = URL.createObjectURL(e.target.files[0])
+    //     setDish({...dish, image: url})
+    // }
+
     return (
         <div className={classes.image_loader}>
             <div className={classes.image}>
-                {dish.image
-                ?<img id='chosen-image' src={dish.image} alt='add image'/>
+                {image.value
+                ?<img id='chosen-image' src={image.value} alt='add image'/>
                 :<img id='chosen-image' src={addImage} alt='add image'/>}
             </div>
             <div className={classes.file}>
                 <label htmlFor={'upload-button'}>
                     <i className="fa-solid fa-upload"/>
                 </label>
-                <input type='file' id='upload-button' accept='image/*' onChange={e => changeImage(e)}/>
+                <input type='file' id='upload-button' accept='image/*'
+                       onBlur={e => image.onBlur(e)}
+                       onChange={e => image.onChangeImage(e)}/>
             </div>
         </div>
     );

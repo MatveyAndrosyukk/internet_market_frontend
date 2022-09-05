@@ -5,6 +5,8 @@ import logo from '../../../../static/images/logo.png';
 import cart from '../../../../static/images/cart.png';
 // @ts-ignore
 import phone from '../../../../static/images/phone.png';
+// @ts-ignore
+import burger_menu from '../../../../static/images/burger.png';
 import BookTableModal from "../../../UI/modal/book_table_modal/BookTableModal";
 import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import RegistrationModal from "../../../UI/modal/registration_modal/RegistrationModal";
@@ -14,15 +16,18 @@ import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
 // @ts-ignore
 import classes from "./GreetingNavbar.module.css"
 import NavButton from "../../../UI/button/nav_button/NavButton";
+import MenuBurger from "../../../UI/burger_menu/MenuBurger";
 
-interface GreetingNavbarProps{
+interface GreetingNavbarProps {
     modal: boolean,
     setModal: React.Dispatch<boolean>,
     registrationModal: boolean,
     setRegistrationModal: React.Dispatch<boolean>
 }
-const GreetingNavbar:FC<GreetingNavbarProps> = ({modal, setModal, registrationModal, setRegistrationModal}) => {
+
+const GreetingNavbar: FC<GreetingNavbarProps> = ({modal, setModal, registrationModal, setRegistrationModal}) => {
     const [loginModal, setLoginModal] = useState<boolean>(false)
+    const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
     const {isAuth, setIsAuth, user, setUser} = useContext<GlobalContextValues>(GlobalContext)
 
@@ -30,13 +35,14 @@ const GreetingNavbar:FC<GreetingNavbarProps> = ({modal, setModal, registrationMo
         console.log(user)
         setIsAuth(false)
         localStorage.removeItem('auth')
+        localStorage.removeItem('ADMIN')
         setUser(null)
     }
 
     const bookTable = () => {
-        if (isAuth){
+        if (isAuth) {
             setModal(true)
-        }else {
+        } else {
             setRegistrationModal(true)
         }
     }
@@ -77,12 +83,36 @@ const GreetingNavbar:FC<GreetingNavbarProps> = ({modal, setModal, registrationMo
                             бронирования
                         </div>
                     </div>
-                    <NavButton onClick={bookTable}>
-                        ЗАКАЗ СТОЛИКА
-                    </NavButton>
-                    {user?.roles.find(role => role.name === 'ADMIN')
-                    ? <NavButton onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</NavButton>
-                    : <span/>}
+                    <div className={classes.buttons}>
+                        <div className={classes.book_table_button}>
+                            <NavButton onClick={bookTable}>
+                                ЗАКАЗ СТОЛИКА
+                            </NavButton>
+                        </div>
+                        {localStorage.getItem('ADMIN')
+                            ? <NavButton onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</NavButton>
+                            : <span/>}
+                    </div>
+
+                    <div className={classes.burger_menu}>
+                        <MenuBurger
+                            isBurgerSlide={isBurgerSlide}
+                            setBurgerSlide={setBurgerSlide}
+                            bookTable={bookTable}
+                            setAddDishModal={setAddDishModal}
+                            isAuth={isAuth}
+                            logout={logout}
+                            setLoginModal={setLoginModal}>
+                            <div className={classes.nav_items}>
+                                <div className={classes.nav_item}>
+                                    <a className={classes.nav_item} href='#menu'>МЕНЮ</a>
+                                </div>
+                                <div className={classes.nav_item}>
+                                    <Link className={classes.nav_item} to={'/cart'}>КОРЗИНА</Link>
+                                </div>
+                            </div>
+                        </MenuBurger>
+                    </div>
                 </div>
                 <div className={classes.header_down}>
                     <div className={classes.title}>

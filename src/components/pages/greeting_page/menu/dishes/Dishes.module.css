@@ -4,3 +4,10 @@
     margin-top: 138px;
     position: relative;
 }
+
+@media (max-width: 1471px) {
+    .dishes {
+        display: block;
+        margin-top: 30px;
+    }
+}
