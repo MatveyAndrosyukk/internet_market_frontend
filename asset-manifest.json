@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/internet_market_frontend/static/css/main.c30692fe.css",
+    "main.js": "/internet_market_frontend/static/js/main.61a22463.js",
+    "static/media/menu_page_bg.png": "/internet_market_frontend/static/media/menu_page_bg.97f47571c1160d560c9c.png",
+    "static/media/bg_image.png": "/internet_market_frontend/static/media/bg_image.2c9d2cca5b364b8d2cba.png",
+    "static/media/book_bg_image.png": "/internet_market_frontend/static/media/book_bg_image.51e8060111b76c6fe4b6.png",
+    "static/media/cook_2.png": "/internet_market_frontend/static/media/cook_2.c07eaa5006d2715f1a67.png",
+    "static/media/cook_3.png": "/internet_market_frontend/static/media/cook_3.a215ef058fb28d1582fb.png",
+    "static/media/history_image_two.png": "/internet_market_frontend/static/media/history_image_two.09401025dc99151e714d.png",
+    "static/media/history_image_one.png": "/internet_market_frontend/static/media/history_image_one.c6aaf5080a7e44377050.png",
+    "static/media/cook_1.png": "/internet_market_frontend/static/media/cook_1.4e4a32731f81e53af66a.png",
+    "static/media/history_image_three.png": "/internet_market_frontend/static/media/history_image_three.e2e0c4ff60082818fe23.png",
+    "static/media/add_dish_image.png": "/internet_market_frontend/static/media/add_dish_image.59d2bf6067274d30f02a.png",
+    "index.html": "/internet_market_frontend/index.html",
+    "main.c30692fe.css.map": "/internet_market_frontend/static/css/main.c30692fe.css.map",
+    "main.61a22463.js.map": "/internet_market_frontend/static/js/main.61a22463.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c30692fe.css",
+    "static/js/main.61a22463.js"
+  ]
+}
