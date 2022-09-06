@@ -80,7 +80,7 @@ const OrderDishModal: FC<OrderModal> = (
                         <label>Укажите ваш адрес</label>
                         <input type='text' value={address.value}
                                onChange={e => address.onChange(e)}
-                               onBlur={e => address.onBlur(e)}/>
+                               onBlur={() => address.onBlur()}/>
                     </div>
                     <div className={[classes.data, classes.last_data].join(' ')}>
                         <div className={(cardNumber.isDirty && (cardNumber.isEmpty || cardNumber.cardError))
@@ -93,7 +93,7 @@ const OrderDishModal: FC<OrderModal> = (
                         </label>
                         <input type='text' value={cardNumber.value}
                                onChange={e => cardNumber.onChangeCard(e)}
-                               onBlur={e => cardNumber.onBlur(e)}/>
+                               onBlur={() => cardNumber.onBlur()}/>
                     </div>
                     <div className={classes.button_block}>
                         <div className={classes.inner}/>

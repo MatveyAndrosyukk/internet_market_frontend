@@ -1,10 +1,6 @@
 import React, {FC, useMemo, useState} from 'react';
 // @ts-ignore
-import manu_page_hamburger from "../../../../static/images/manu_page_gamburger.png";
-// @ts-ignore
 import classes from "./Menu.module.css"
-// @ts-ignore
-import menu_page_bg from "../../../../static/images/menu_page_bg.png";
 import Dishes from "./dishes/Dishes";
 import {Link} from "react-router-dom";
 import {IDish} from "../../../../types/dishes";
@@ -32,7 +28,7 @@ const Menu: FC = () => {
                     </div>
                     <div className={classes.dishes_list}>
                         <div className={
-                            index == 0
+                            index === 0
                                 ? [classes.prev_dish, classes.disabled, classes.left_arrow].join(' ')
                                 : [classes.prev_dish, classes.left_arrow].join(' ')
                         }
@@ -41,7 +37,7 @@ const Menu: FC = () => {
                             <span>&#8249;</span>
                         </div>
                         <div className={
-                            index == 0
+                            index === 0
                                 ? [classes.prev_dish, classes.disabled, classes.top_arrow].join(' ')
                                 : [classes.prev_dish, classes.top_arrow].join(' ')
                         }

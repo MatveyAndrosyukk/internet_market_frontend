@@ -3,8 +3,6 @@ import React, {FC} from 'react';
 import classes from './ImageLoader.module.css'
 // @ts-ignore
 import addImage from "../../../static/images/add_dish_image.png";
-// @ts-ignore
-import manu_page_hamburger from "../../manu_page_gamburger.png";
 
 interface ImageLoader {
     image: any
@@ -22,7 +20,7 @@ const ImageLoader:FC<ImageLoader> = ({image}) => {
                     <i className="fa-solid fa-upload"/>
                 </label>
                 <input type='file' id='upload-button' accept='image/*'
-                       onBlur={e => image.onBlur(e)}
+                       onBlur={() => image.onBlur()}
                        onChange={e => image.onChangeImage(e)}/>
             </div>
         </div>

@@ -59,16 +59,16 @@ const History:FC = () => {
                     </div>
                     <div className={classes.history_images}>
                         <div className={classes.history_image_1}>
-                            <img className={classes.history_img_1} src={history_image_one} alt='First image'/>
+                            <img className={classes.history_img_1} src={history_image_one}/>
                         </div>
                         <div className={classes.history_image_2}>
-                            <img className={classes.history_img_2} src={history_image_two} alt='Second image'/>
+                            <img className={classes.history_img_2} src={history_image_two}/>
                         </div>
                         <div className={classes.history_image_3}>
-                            <img className={classes.history_img_3} src={history_image_three} alt='Third image'/>
+                            <img className={classes.history_img_3} src={history_image_three}/>
                         </div>
                         <div className={classes.history_image_4}>
-                            <img className={classes.history_img_4} src={history_image_four} alt='Fourth image'/>
+                            <img className={classes.history_img_4} src={history_image_four}/>
                         </div>
                     </div>
                 </div>

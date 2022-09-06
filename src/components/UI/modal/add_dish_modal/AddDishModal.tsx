@@ -85,8 +85,8 @@ const AddDishModal: FC<AddDishModalProps> = (
                         <label>Укажите категорию</label>
                         <div>
                             <Select
-                                onBlur={(e) => {
-                                    category.onBlurSelect(e)
+                                onBlur={() => {
+                                    category.onBlurSelect()
                                 }}
                                 value={category.value}
                                 onChange={(e) => {
@@ -108,7 +108,7 @@ const AddDishModal: FC<AddDishModalProps> = (
                         </div>
                         <label>Укажите название</label>
                         <input type='text' value={title.value}
-                               onBlur={e => title.onBlur(e)}
+                               onBlur={() => title.onBlur()}
                                onChange={e => title.onChange(e)}/>
                     </div>
                     <div className={classes.data}>
@@ -119,7 +119,7 @@ const AddDishModal: FC<AddDishModalProps> = (
                         </div>
                         <label>Укажите описание</label>
                         <input type='tel' value={description.value}
-                               onBlur={e => description.onBlur(e)}
+                               onBlur={() => description.onBlur()}
                                onChange={e => description.onChange(e)}/>
                     </div>
                     <div className={classes.data}>
@@ -130,7 +130,7 @@ const AddDishModal: FC<AddDishModalProps> = (
                         </div>
                         <label>Укажите цену</label>
                         <input type='number' value={price.value}
-                               onBlur={e => price.onBlur(e)}
+                               onBlur={() => price.onBlur()}
                                onChange={e => price.onChange(e)}/>
                     </div>
                     <div className={classes.button_block}>

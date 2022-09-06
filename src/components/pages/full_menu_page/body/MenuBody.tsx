@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
 // @ts-ignore
 import classes from "./MenuBody.module.css"
-// @ts-ignore
-import manu_page_hamburger from "../../../../static/images/manu_page_gamburger.png";
 import Dish from "../../../UI/dish/Dish";
 import {IDish} from "../../../../types/dishes";
 

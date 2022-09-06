@@ -1,4 +1,4 @@
-import {dishesMock} from "../redux/mock_objects/store";
+import {dishesMock} from "../redux/mock_objects/dishesMock";
 
 export interface IDish {
     id:number,

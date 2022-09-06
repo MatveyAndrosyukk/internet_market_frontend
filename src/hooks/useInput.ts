@@ -21,11 +21,11 @@ const useValidation = (value: (string), validations: IValidation) => {
                     value ? setEmpty(false) : setEmpty(true)
                     break;
                 case 'isEmail':
-                    const emailRegEx = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+                    const emailRegEx = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
                     emailRegEx.test(String(value).toLowerCase()) ? setEmailError(false) : setEmailError(true)
                     break;
                 case 'isPhone':
-                    const phoneRegEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+                    const phoneRegEx = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/im
                     phoneRegEx.test(String(value).toLowerCase()) ? setPhoneError(false) : setPhoneError(true)
                     break;
                 case 'isCard':
@@ -34,7 +34,7 @@ const useValidation = (value: (string), validations: IValidation) => {
                     break;
             }
         }
-    }, [value])
+    }, [value, validations])
 
     useEffect(() => {
         (isEmpty || emailError || phoneError || cardError) ? setInputValid(false) : setInputValid(true)
@@ -67,11 +67,11 @@ export const useInput = (initialValue: string, validations: IValidation) => {
         setValue(cardCode)
     }
 
-    const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const onBlur = () => {
         setDirty(true)
     }
 
-    const onBlurSelect = (e: React.FocusEvent<HTMLSelectElement>) => {
+    const onBlurSelect = () => {
         setDirty(true)
     }
 

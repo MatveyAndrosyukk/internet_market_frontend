@@ -9,8 +9,6 @@ import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import {Link} from "react-router-dom";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import NavButton from "../../../UI/button/nav_button/NavButton";
-// @ts-ignore
-import burger_menu from "../../../../static/images/burger.png";
 import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
 import MenuBurger from "../../../UI/burger_menu/MenuBurger";
 

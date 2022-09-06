@@ -80,7 +80,7 @@ const LoginModal: FC<LoginModalProps> = (
                     <label>Введите email</label>
                     <input type='text' value={email.value}
                            onChange={e => email.onChange(e)}
-                           onBlur={e => email.onBlur(e)}
+                           onBlur={() => email.onBlur()}
                     />
                 </div>
                 <div className={classes.data}>
@@ -92,7 +92,7 @@ const LoginModal: FC<LoginModalProps> = (
                     <label>Введите пароль</label>
                     <input type='password' value={password.value}
                            onChange={e => password.onChange(e)}
-                           onBlur={e => password.onBlur(e)}
+                           onBlur={() => password.onBlur()}
                     />
                 </div>
                 <div className={classes.button_block}>

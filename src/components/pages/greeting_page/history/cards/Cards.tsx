@@ -1,7 +1,4 @@
 import React, {FC} from 'react';
-
-// @ts-ignore
-import card_image from "../../../../../static/images/card_image.png";
 import {ICard} from "../../../../../types/types";
 import Card from "./card/Card";
 // @ts-ignore

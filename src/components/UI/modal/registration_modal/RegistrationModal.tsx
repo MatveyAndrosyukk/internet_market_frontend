@@ -87,7 +87,7 @@ const RegistrationModal: FC<RegistrationModalProps> = (
                     <label>Введите имя</label>
                     <input type='text' value={name.value}
                            onChange={e => name.onChange(e)}
-                           onBlur={e => name.onBlur(e)}/>
+                           onBlur={() => name.onBlur()}/>
                 </div>
                 <div className={classes.data}>
                     <div className={(email.isDirty && (email.isEmpty || email.emailError))
@@ -98,7 +98,7 @@ const RegistrationModal: FC<RegistrationModalProps> = (
                     <label>Введите email</label>
                     <input type='email' value={email.value}
                            onChange={e => email.onChange(e)}
-                           onBlur={e => email.onBlur(e)}/>
+                           onBlur={() => email.onBlur()}/>
                 </div>
                 <div className={classes.data}>
                     <div className={(phone.isDirty && (phone.isEmpty || phone.phoneError))
@@ -109,7 +109,7 @@ const RegistrationModal: FC<RegistrationModalProps> = (
                     <label>Введите свой номер телефона</label>
                     <input type='tel' value={phone.value}
                            onChange={e => phone.onChange(e)}
-                           onBlur={e => phone.onBlur(e)}/>
+                           onBlur={() => phone.onBlur()}/>
                 </div>
                 <div className={classes.data}>
                     <div className={(password.isDirty && (password.isEmpty))
@@ -120,7 +120,7 @@ const RegistrationModal: FC<RegistrationModalProps> = (
                     <label>Введите пароль</label>
                     <input type='password' value={password.value}
                            onChange={e => password.onChange(e)}
-                           onBlur={e => password.onBlur(e)}/>
+                           onBlur={() => password.onBlur()}/>
                 </div>
                 <div className={classes.button_block}>
                     <div className={classes.inner}>

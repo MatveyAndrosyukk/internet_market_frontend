@@ -74,7 +74,7 @@ const BookTableModal: FC<BookTableModalProps> = (
                         <input type='text'
                                value={name.value}
                                onChange={e => name.onChange(e)}
-                               onBlur={e => name.onBlur(e)}
+                               onBlur={() => name.onBlur()}
                         />
                     </div>
                     <div className={classes.data}>
@@ -87,7 +87,7 @@ const BookTableModal: FC<BookTableModalProps> = (
                         <input type='tel'
                                value={phone.value}
                                onChange={e => phone.onChange(e)}
-                               onBlur={e => phone.onBlur(e)}
+                               onBlur={() => phone.onBlur()}
                         />
                     </div>
                     <div className={classes.data}>
@@ -100,7 +100,7 @@ const BookTableModal: FC<BookTableModalProps> = (
                         <input type='number'
                                value={persons.value}
                                onChange={e => persons.onChange(e)}
-                               onBlur={e => persons.onBlur(e)}
+                               onBlur={() => persons.onBlur()}
                         />
                     </div>
                     <div className={classes.data}>
@@ -113,7 +113,7 @@ const BookTableModal: FC<BookTableModalProps> = (
                         <input type='date'
                                value={date.value}
                                onChange={e => date.onChange(e)}
-                               onBlur={e => date.onBlur(e)}
+                               onBlur={() => date.onBlur()}
                         />
                     </div>
                     <div className={classes.data}>
@@ -126,7 +126,7 @@ const BookTableModal: FC<BookTableModalProps> = (
                         <input type='time'
                                value={time.value}
                                onChange={e => time.onChange(e)}
-                               onBlur={e => time.onBlur(e)}
+                               onBlur={() => time.onBlur()}
                         />
                     </div>
                     <div className={classes.button_block}>

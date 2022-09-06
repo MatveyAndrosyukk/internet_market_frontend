@@ -12,7 +12,7 @@ const Card:FC<CardProps> = ({card}) => {
     return (
         <div className={classes.card}>
             <div className={classes.image_block}>
-                <img className={classes.image} src={card_image} alt='Card Image'/>
+                <img className={classes.image} src={card_image}/>
             </div>
             <div className={classes.title} id='hist'>
                 {card.blackTitle} <span>{card.orangeTitle}</span>

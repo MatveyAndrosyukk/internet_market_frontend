@@ -1,7 +1,4 @@
 import React, {FC, useState} from 'react';
-
-// @ts-ignore
-import logo from '../../../static/images/logo.png';
 import MenuNavbar from "./navbar/MenuNavbar";
 import MenuBody from "./body/MenuBody";
 import Footer from "../../UI/footer/Footer";

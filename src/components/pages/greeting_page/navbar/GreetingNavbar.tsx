@@ -5,8 +5,6 @@ import logo from '../../../../static/images/logo.png';
 import cart from '../../../../static/images/cart.png';
 // @ts-ignore
 import phone from '../../../../static/images/phone.png';
-// @ts-ignore
-import burger_menu from '../../../../static/images/burger.png';
 import BookTableModal from "../../../UI/modal/book_table_modal/BookTableModal";
 import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import RegistrationModal from "../../../UI/modal/registration_modal/RegistrationModal";
