@@ -1,9 +1,7 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useState} from 'react';
 // @ts-ignore
 import classes from './BookTableModal.module.css';
 import Modal from "../Modal";
-import {GlobalContext, GlobalContextValues} from '../../../../context/context'
-import {ITable} from "../../../../types/types";
 import InfoModal from "../info_modal/InfoModal";
 import {useInput} from "../../../../hooks/useInput";
 
@@ -20,8 +18,6 @@ const BookTableModal: FC<BookTableModalProps> = (
         setRegistrationModal
     }
 ) => {
-    const {tables, setTables} = useContext<GlobalContextValues>(GlobalContext)
-    const [table, setTable] = useState<ITable>({name: '', phone: '', persons: '', date: '', time: ''})
     const [orderDate, setOrderDate] = useState<string>('');
     const [infoModal, setInfoModal] = useState<boolean>(false)
 
@@ -40,23 +36,27 @@ const BookTableModal: FC<BookTableModalProps> = (
 
         setOrderDate(date.value)
 
-        setTable({
-            name: name.value,
-            phone: phone.value,
-            persons: persons.value,
-            date: date.value,
-            time: time.value
-        })
-
-        setTables([...tables, table])
-        setTable({name: '', phone: '', persons: '', date: '', time: ''})
-
         setModal(false)
         setInfoModal(true)
         setTimeout(() => {
             setInfoModal(false)
+            setInitValues()
         }, 2000)
     }
+
+    const setInitValues = ():void => {
+        name.setValue('')
+        name.setDirty(false)
+        phone.setValue('')
+        phone.setDirty(false)
+        persons.setValue('')
+        persons.setDirty(false)
+        date.setValue('')
+        date.setDirty(false)
+        time.setValue('')
+        time.setDirty(false)
+    }
+
     return (
         <div>
             <Modal activeWhenClicked={false} active={modal} setActive={setModal}>

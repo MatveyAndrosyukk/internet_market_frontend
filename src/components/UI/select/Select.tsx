@@ -8,16 +8,24 @@ interface SelectProps {
     defaultValue: string,
     value: string,
     onChange: ChangeEventHandler<HTMLSelectElement>,
-    onBlur?:  FocusEventHandler<HTMLSelectElement>
+    onBlur?: FocusEventHandler<HTMLSelectElement>
 }
-const Select:FC<SelectProps> = ({options, defaultValue, value, onChange, onBlur}) => {
+
+const Select: FC<SelectProps> = (
+    {
+        options,
+        defaultValue,
+        value,
+        onChange,
+        onBlur
+    }) => {
     return (
         <select className={classes.select} value={value} onChange={onChange} onBlur={onBlur}>
             <option disabled value=''>{defaultValue}</option>
             {options.map(option =>
-            <option value={option.value}>
-                {option.name}
-            </option>
+                <option value={option.value}>
+                    {option.name}
+                </option>
             )}
         </select>
     );

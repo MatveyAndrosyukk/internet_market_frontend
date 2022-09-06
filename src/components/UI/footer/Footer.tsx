@@ -5,20 +5,25 @@ import {GlobalContext, GlobalContextValues} from "../../../context/context";
 import classes from "./Footer.module.css"
 import NavButton from "../button/nav_button/NavButton";
 
-interface BookTableProps{
+interface BookTableProps {
     modal: boolean,
     setModal: React.Dispatch<boolean>,
     registrationModal?: boolean,
     setRegistrationModal: React.Dispatch<boolean>
 }
 
-const Footer:FC<BookTableProps> = ({modal, setModal, setRegistrationModal}) => {
+const Footer: FC<BookTableProps> = (
+    {
+        modal,
+        setModal,
+        setRegistrationModal
+    }) => {
     const {isAuth} = useContext<GlobalContextValues>(GlobalContext)
 
     const bookTable = () => {
-        if (isAuth){
+        if (isAuth) {
             setModal(true)
-        }else {
+        } else {
             setRegistrationModal(true)
         }
     }

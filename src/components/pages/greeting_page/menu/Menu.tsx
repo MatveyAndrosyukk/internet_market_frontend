@@ -1,4 +1,4 @@
-import React, {FC, useContext, useMemo, useState} from 'react';
+import React, {FC, useMemo, useState} from 'react';
 // @ts-ignore
 import manu_page_hamburger from "../../../../static/images/manu_page_gamburger.png";
 // @ts-ignore
@@ -7,12 +7,12 @@ import classes from "./Menu.module.css"
 import menu_page_bg from "../../../../static/images/menu_page_bg.png";
 import Dishes from "./dishes/Dishes";
 import {Link} from "react-router-dom";
-import {IDish} from "../../../../types/types";
-import {GlobalContext, GlobalContextValues} from "../../../../context/context";
+import {IDish} from "../../../../types/dishes";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 
 const Menu: FC = () => {
     const [index, setIndex] = useState<number>(0)
-    const {dishes} = useContext<GlobalContextValues>(GlobalContext)
+    const {dishes} = useTypedSelector(state => state.dishes)
     const [threeDishes, setThreeDishes] = useState<IDish[]>(
         [dishes[index], dishes[index + 1], dishes[index + 2]]
     );

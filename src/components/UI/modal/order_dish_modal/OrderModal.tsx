@@ -1,17 +1,19 @@
-import React, {ChangeEvent, FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useState} from 'react';
 // @ts-ignore
 import classes from "./OrderModal.module.css"
 import Modal from "../Modal";
-import {ITotalInfo} from "../../../../types/types";
 import InfoModal from "../info_modal/InfoModal";
-import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import {useInput} from "../../../../hooks/useInput";
+import {useDispatch} from 'react-redux';
+import {cleanCart} from "../../../../redux/reducers/cartReducer";
+import {ITotalInfo} from "../../../pages/cart_page/body/CartBody";
 
 interface OrderModal {
     modal: boolean,
     setModal: React.Dispatch<boolean>,
     setRegistrationModal: React.Dispatch<boolean>,
     totalInfo: ITotalInfo,
+    setTotalInfo: React.Dispatch<ITotalInfo>
 }
 
 const OrderDishModal: FC<OrderModal> = (
@@ -19,17 +21,20 @@ const OrderDishModal: FC<OrderModal> = (
         modal,
         setModal,
         setRegistrationModal,
-        totalInfo
+        totalInfo,
+        setTotalInfo
     }
 ) => {
+    const dispatch = useDispatch()
+    const [infoModal, setInfoModal] = useState<boolean>(false)
+
     const address = useInput('', {isEmpty: true})
     const cardNumber = useInput('', {isEmpty: true, isCard: ''})
-    const [infoModal, setInfoModal] = useState<boolean>(false)
+
     const openRegistrationModal = () => {
         setModal(false)
         setRegistrationModal(true)
     }
-    const {setCart} = useContext<GlobalContextValues>(GlobalContext);
 
     const orderDishes = (e: React.FormEvent<HTMLButtonElement>): void => {
         e.preventDefault();
@@ -38,8 +43,17 @@ const OrderDishModal: FC<OrderModal> = (
         setInfoModal(true)
         setTimeout(() => {
             setInfoModal(false)
-            setCart([])
+            dispatch(cleanCart())
+            setTotalInfo({price: 0, count: 0})
+            setInitValues()
         }, 3000)
+    }
+
+    const setInitValues = ():void => {
+        address.setValue('')
+        address.setDirty(false)
+        cardNumber.setValue('')
+        cardNumber.setDirty(false)
     }
 
     return (

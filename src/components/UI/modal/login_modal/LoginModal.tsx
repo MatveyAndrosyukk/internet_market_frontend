@@ -1,19 +1,26 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 // @ts-ignore
 import classes from './LoginModal.module.css';
 import Modal from "../Modal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
-import {IUser} from "../../../../types/types";
 import {useInput} from "../../../../hooks/useInput";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {IUser} from "../../../../types/users";
 
-interface LoginModalProps{
+interface LoginModalProps {
     modal: boolean,
     setModal: React.Dispatch<boolean>,
     setRegistrationModal: React.Dispatch<boolean>,
 }
 
-const LoginModal:FC<LoginModalProps> = ({modal, setModal, setRegistrationModal}) => {
-    const {setIsAuth, users, setUser} = useContext<GlobalContextValues>(GlobalContext)
+const LoginModal: FC<LoginModalProps> = (
+    {
+        modal,
+        setModal,
+        setRegistrationModal
+    }) => {
+    const {users} = useTypedSelector(state => state.users)
+    const {setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
     const [areBadCredentials, setAreBadCredentials] = useState<boolean>(false);
 
     const email = useInput('', {isEmpty: true, isEmail: ''})
@@ -27,24 +34,31 @@ const LoginModal:FC<LoginModalProps> = ({modal, setModal, setRegistrationModal})
     const logIn = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
 
-        let user:(IUser | undefined) = users.find(user => user.email === email.value)
+        let user: (IUser | undefined) = users.find(user => user.email === email.value)
 
-        if (typeof user === 'object'){
-            if (user.password == password.value){
+        if (typeof user === 'object') {
+            if (user.password == password.value) {
                 setIsAuth(true)
 
                 if (user.roles.find(role => role.name === 'ADMIN')) localStorage.setItem('ADMIN', 'ADMIN')
                 localStorage.setItem('auth', 'true')
 
                 setModal(false)
+                setInitValues()
                 setAreBadCredentials(false)
-                setUser(user)
-            }else {
+            } else {
                 setAreBadCredentials(true)
             }
-        }else {
+        } else {
             setAreBadCredentials(true)
         }
+    }
+
+    const setInitValues = (): void => {
+        email.setValue('')
+        email.setDirty(false)
+        password.setValue('')
+        password.setDirty(false)
     }
 
     return (
@@ -56,7 +70,8 @@ const LoginModal:FC<LoginModalProps> = ({modal, setModal, setRegistrationModal})
                 <div className={classes.data}>
                     {areBadCredentials
                         ? <div className={classes.bad_credentials}>Неверный логин или пароль</div>
-                        : <div className={[classes.bad_credentials, classes.hidden].join(' ')}>Неверный логин или пароль!</div>}
+                        : <div className={[classes.bad_credentials, classes.hidden].join(' ')}>Неверный логин или
+                            пароль!</div>}
                     <div className={(email.isDirty && (email.isEmpty || email.emailError))
                         ? classes.incorrectData
                         : [classes.incorrectData, classes.hidden].join(' ')}>
@@ -66,7 +81,7 @@ const LoginModal:FC<LoginModalProps> = ({modal, setModal, setRegistrationModal})
                     <input type='text' value={email.value}
                            onChange={e => email.onChange(e)}
                            onBlur={e => email.onBlur(e)}
-                           />
+                    />
                 </div>
                 <div className={classes.data}>
                     <div className={(password.isDirty && (password.isEmpty))

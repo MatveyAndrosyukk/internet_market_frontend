@@ -25,18 +25,22 @@ interface GreetingNavbarProps {
     setRegistrationModal: React.Dispatch<boolean>
 }
 
-const GreetingNavbar: FC<GreetingNavbarProps> = ({modal, setModal, registrationModal, setRegistrationModal}) => {
+const GreetingNavbar: FC<GreetingNavbarProps> = (
+    {
+        modal,
+        setModal,
+        registrationModal,
+        setRegistrationModal
+    }) => {
     const [loginModal, setLoginModal] = useState<boolean>(false)
     const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
-    const {isAuth, setIsAuth, user, setUser} = useContext<GlobalContextValues>(GlobalContext)
+    const {isAuth, setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
 
     const logout = () => {
-        console.log(user)
         setIsAuth(false)
         localStorage.removeItem('auth')
         localStorage.removeItem('ADMIN')
-        setUser(null)
     }
 
     const bookTable = () => {

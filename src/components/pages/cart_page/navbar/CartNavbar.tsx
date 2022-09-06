@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 // @ts-ignore
 import classes from "./CartNavbar.module.css"
 // @ts-ignore
@@ -8,7 +8,6 @@ import RegistrationModal from "../../../UI/modal/registration_modal/Registration
 import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import {Link} from "react-router-dom";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
-import NavButton from "../../../UI/button/nav_button/NavButton";
 // @ts-ignore
 import burger_menu from "../../../../static/images/burger.png";
 import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
@@ -22,7 +21,13 @@ interface MenuNavbarProps {
 
 }
 
-const MenuNavbar: FC<MenuNavbarProps> = ({modal, setModal, registrationModal, setRegistrationModal}) => {
+const MenuNavbar: FC<MenuNavbarProps> = (
+    {
+        modal,
+        setModal,
+        registrationModal,
+        setRegistrationModal
+    }) => {
     const [loginModal, setLoginModal] = useState<boolean>(false)
     const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
@@ -65,7 +70,8 @@ const MenuNavbar: FC<MenuNavbarProps> = ({modal, setModal, registrationModal, se
                         <div className={classes.nav_item}>
                             {isAuth
                                 ? <a className={classes.nav_item} href='#' onClick={logout}>ВЫЙТИ</a>
-                                : <a className={classes.nav_item} href='#' onClick={() => setLoginModal(true)}>ВОЙТИ</a>}
+                                :
+                                <a className={classes.nav_item} href='#' onClick={() => setLoginModal(true)}>ВОЙТИ</a>}
                         </div>
                     </div>
                     <div className={classes.burger_menu}>

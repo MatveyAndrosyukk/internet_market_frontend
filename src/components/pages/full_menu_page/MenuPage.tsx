@@ -1,19 +1,17 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useState} from 'react';
 
 // @ts-ignore
 import logo from '../../../static/images/logo.png';
 import MenuNavbar from "./navbar/MenuNavbar";
 import MenuBody from "./body/MenuBody";
 import Footer from "../../UI/footer/Footer";
-import {dishesMock} from "../../../data/store";
-import {GlobalContext, GlobalContextValues} from "../../../context/context";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 const MenuPage: FC = () => {
-    const {dishes} = useContext<GlobalContextValues>(GlobalContext)
     const [modal, setModal] = useState<boolean>(false)
     const [registrationModal, setRegistrationModal] = useState<boolean>(false)
     const [category, setCategory] = useState<string>('Закуски')
-
+    const {dishes} = useTypedSelector(state => state.dishes)
 
     return (
         <div className='full-menu'>

@@ -8,7 +8,13 @@ interface InfoModalProps {
     setModal: React.Dispatch<boolean>,
     children: React.ReactNode
 }
-const InfoModal:FC<InfoModalProps> = ({modal, setModal, children}) => {
+
+const InfoModal: FC<InfoModalProps> = (
+    {
+        modal,
+        setModal,
+        children
+    }) => {
     return (
         <Modal activeWhenClicked={true} active={modal} setActive={setModal}>
             <div className={classes.info}>

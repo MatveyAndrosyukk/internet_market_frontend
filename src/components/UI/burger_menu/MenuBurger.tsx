@@ -5,7 +5,7 @@ import classes from "./MenuMurger.module.css"
 import burger_menu from "../../../static/images/burger.png";
 import {Link} from "react-router-dom";
 
-interface MenuBurgerProps{
+interface MenuBurgerProps {
     isBurgerSlide: boolean,
     setBurgerSlide: React.Dispatch<boolean>,
     bookTable: () => void,
@@ -15,15 +15,18 @@ interface MenuBurgerProps{
     setLoginModal: React.Dispatch<boolean>,
     children: ReactElement
 }
-const MenuBurger:FC<MenuBurgerProps> = (
-    {isBurgerSlide,
+
+const MenuBurger: FC<MenuBurgerProps> = (
+    {
+        isBurgerSlide,
         setBurgerSlide,
-    bookTable,
-    setAddDishModal,
-    isAuth,
-    logout,
-    setLoginModal,
-    children}
+        bookTable,
+        setAddDishModal,
+        isAuth,
+        logout,
+        setLoginModal,
+        children
+    }
 ) => {
     return (
         <div>
@@ -38,12 +41,6 @@ const MenuBurger:FC<MenuBurgerProps> = (
                     <Link className={classes.nav_item} to={'/greetings'}>ГЛАВНАЯ</Link>
                 </div>
                 {children}
-                {/*<div className={classes.nav_item}>*/}
-                {/*    <a className={classes.nav_item} href='#menu'>МЕНЮ</a>*/}
-                {/*</div>*/}
-                {/*<div className={classes.nav_item}>*/}
-                {/*    <Link className={classes.nav_item} to={'/cart'}>КОРЗИНА</Link>*/}
-                {/*</div>*/}
                 <div className={classes.nav_item}>
                     <a className={classes.nav_item} href='#hist'>О НАС</a>
                 </div>

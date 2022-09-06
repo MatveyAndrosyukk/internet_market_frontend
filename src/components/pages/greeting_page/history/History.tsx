@@ -1,4 +1,4 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
 import Cards from "./cards/Cards";
 // @ts-ignore
 import history_image_one from "../../../../static/images/history_image_one.png";
@@ -8,12 +8,12 @@ import history_image_two from "../../../../static/images/history_image_two.png";
 import history_image_three from "../../../../static/images/history_image_three.png";
 // @ts-ignore
 import history_image_four from "../../../../static/images/history_image_four.png";
-import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 // @ts-ignore
 import classes from "./History.module.css"
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 
 const History:FC = () => {
-    const {dishes, setDishes} = useContext<GlobalContextValues>(GlobalContext)
+    const {dishes} = useTypedSelector(state => state.dishes)
 
     return (
         <div className={classes.history}>

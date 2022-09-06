@@ -1,4 +1,4 @@
-import React, {FC, useContext, useEffect, useState} from 'react';
+import React, {FC, useState} from 'react';
 import Modal from "../Modal";
 import InfoModal from "../info_modal/InfoModal";
 // @ts-ignore
@@ -6,22 +6,23 @@ import addImage from '../../../../static/images/add_dish_image.png';
 // @ts-ignore
 import classes from './AddDishModal.module.css';
 import Select from "../../select/Select";
-import {IDish} from "../../../../types/types";
 import ImageLoader from "../../image_loader/ImageLoader";
-import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import {useInput} from "../../../../hooks/useInput";
+import {useDispatch} from 'react-redux';
+import {addDishAction} from "../../../../redux/reducers/dishesReducer";
 
 interface AddDishModalProps {
     modal: boolean,
     setModal: React.Dispatch<boolean>,
 }
 
-const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
-    const {dishes, setDishes} = useContext<GlobalContextValues>(GlobalContext)
+const AddDishModal: FC<AddDishModalProps> = (
+    {
+        modal,
+        setModal
+    }) => {
+    const dispatch = useDispatch()
     const [infoModal, setInfoModal] = useState<boolean>(false)
-    const [dish, setDish] = useState<IDish>(
-        {id: 0, image: '', count: 0, price: 0, totalPrice: 0, title: '', description: '', category: ''}
-    )
 
     const image = useInput('', {isEmpty: true})
     const category = useInput('', {isEmpty: true})
@@ -29,10 +30,10 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
     const description = useInput('', {isEmpty: true})
     const price = useInput('', {isEmpty: true})
 
-    const addDishToMenu = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const addDishToMenu = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
         e.preventDefault()
 
-        setDish({
+        dispatch(addDishAction({
             id: Date.now(),
             category: category.value,
             image: image.value,
@@ -40,9 +41,8 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
             description: description.value,
             price: parseInt(price.value),
             count: 1,
-            totalPrice: parseInt(price.value)})
-
-        setDishes([...dishes, dish])
+            totalPrice: parseInt(price.value)
+        }))
 
         setModal(false)
         setInfoModal(true)
@@ -50,7 +50,20 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
             setInfoModal(false)
         }, 2000)
 
-        setDish({id: 0, image: '', count: 0, price: 0, totalPrice: 0, title: '', description: '', category: ''})
+        setInitValues()
+    }
+
+    const setInitValues = (): void => {
+        image.setValue('')
+        image.setDirty(false)
+        category.setValue('')
+        category.setDirty(false)
+        title.setValue('')
+        title.setDirty(false)
+        description.setValue('')
+        description.setDirty(false)
+        price.setValue('')
+        price.setDirty(false)
     }
 
     return (
@@ -61,7 +74,7 @@ const AddDishModal: FC<AddDishModalProps> = ({modal, setModal}) => {
                 </div>
                 <form action='#'>
                     <div className={classes.modal_image}>
-                        <ImageLoader image={image} dish={dish} setDish={setDish}/>
+                        <ImageLoader image={image}/>
                     </div>
                     <div className={classes.modal_select}>
                         <div className={(category.isDirty && (category.isEmpty))

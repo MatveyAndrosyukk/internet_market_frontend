@@ -1,23 +1,15 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 // @ts-ignore
 import classes from './ImageLoader.module.css'
 // @ts-ignore
 import addImage from "../../../static/images/add_dish_image.png";
 // @ts-ignore
 import manu_page_hamburger from "../../manu_page_gamburger.png";
-import {IDish} from "../../../types/types";
 
 interface ImageLoader {
-    dish: IDish,
-    setDish: React.Dispatch<IDish>,
     image: any
 }
-const ImageLoader:FC<ImageLoader> = ({dish, setDish, image}) => {
-    // const changeImage = (e: any):void => {
-    //     let url = URL.createObjectURL(e.target.files[0])
-    //     setDish({...dish, image: url})
-    // }
-
+const ImageLoader:FC<ImageLoader> = ({image}) => {
     return (
         <div className={classes.image_loader}>
             <div className={classes.image}>

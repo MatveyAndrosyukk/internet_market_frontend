@@ -1,23 +1,26 @@
-import React, {FC, useContext} from 'react';
-import {IDish} from "../../../types/types";
+import React, {FC} from 'react';
 // @ts-ignore
 import manu_page_hamburger from "../../../static/images/manu_page_gamburger.png";
-import {GlobalContext, GlobalContextValues} from "../../../context/context";
 // @ts-ignore
 import classes from "./Dish.module.css";
+import {IDish} from "../../../types/dishes";
+import {useDispatch} from 'react-redux';
+import {addDishToCart, removeDisFromCart} from "../../../redux/reducers/cartReducer";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 interface DishItemProps{
     dish: IDish
 }
 const Dish:FC<DishItemProps> = ({dish}) => {
-    const {cart, setCart} = useContext<GlobalContextValues>(GlobalContext)
+    const dispatch = useDispatch()
+    const {cart} = useTypedSelector(state => state.cart)
 
     const addToCart = () => {
-        setCart([...cart, dish])
+        dispatch(addDishToCart(dish))
     }
 
     const deleteFromCart = () => {
-        setCart(cart.filter(cartDish => cartDish.id !== dish.id))
+        dispatch(removeDisFromCart(dish))
     }
 
     return (

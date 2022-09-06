@@ -3,13 +3,17 @@ import React, {FC} from 'react';
 import classes from "./MenuBody.module.css"
 // @ts-ignore
 import manu_page_hamburger from "../../../../static/images/manu_page_gamburger.png";
-import {IDish} from "../../../../types/types";
 import Dish from "../../../UI/dish/Dish";
+import {IDish} from "../../../../types/dishes";
 
 interface MenuBodyDishes {
-    dishes:IDish[]
+    dishes: IDish[]
 }
-const MenuBody:FC<MenuBodyDishes> = ({dishes}) => {
+
+const MenuBody: FC<MenuBodyDishes> = (
+    {
+        dishes
+    }) => {
     return (
         <div className={classes.body}>
             <div className='container'>

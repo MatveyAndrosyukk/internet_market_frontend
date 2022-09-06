@@ -1,7 +1,6 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
 // @ts-ignore
 import classes from "./CartBody.module.css"
-import {IDish, ITotalInfo} from "../../../../types/types";
 import CartBodyDish from "./dish/CartBodyDish";
 import OrderDishModal from "../../../UI/modal/order_dish_modal/OrderModal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
@@ -9,6 +8,15 @@ import LoginModal from "../../../UI/modal/login_modal/LoginModal";
 import RegistrationModal from "../../../UI/modal/registration_modal/RegistrationModal";
 import InfoModal from "../../../UI/modal/info_modal/InfoModal";
 import NavButton from "../../../UI/button/nav_button/NavButton";
+import {IDish} from "../../../../types/dishes";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {useDispatch} from 'react-redux';
+import {removeDisFromCart} from "../../../../redux/reducers/cartReducer";
+
+export interface ITotalInfo {
+    price: number,
+    count: number
+}
 
 interface CartBodyProps {
     modal: boolean,
@@ -23,9 +31,10 @@ const CartBody: FC<CartBodyProps> = (
         setModal,
         registrationModal,
         setRegistrationModal
-    }
-) => {
-    const {isAuth, cart, setCart} = useContext<GlobalContextValues>(GlobalContext)
+    }) => {
+    const {isAuth} = useContext<GlobalContextValues>(GlobalContext)
+    const {cart} = useTypedSelector(state => state.cart)
+    const dispatch = useDispatch()
     const [loginModal, setLoginModal] = useState<boolean>(false)
     const [infoModal, setInfoModal] = useState<boolean>(false)
     const [totalInfo, setTotalInfo] = useState<ITotalInfo>({price: 0, count: 0})
@@ -57,7 +66,7 @@ const CartBody: FC<CartBodyProps> = (
     }
 
     const deleteFromCart = (dish: IDish) => {
-        setCart(cart.filter(cartDish => cartDish.id != dish.id))
+        dispatch(removeDisFromCart(dish))
     }
 
     return (
@@ -91,6 +100,7 @@ const CartBody: FC<CartBodyProps> = (
                 </div>
             </div>
             <OrderDishModal totalInfo={totalInfo}
+                            setTotalInfo={setTotalInfo}
                             modal={modal}
                             setModal={setModal}
                             setRegistrationModal={setRegistrationModal}

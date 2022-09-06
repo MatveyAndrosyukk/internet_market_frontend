@@ -1,11 +1,11 @@
-import React, {FC, useContext, useEffect, useMemo, useState} from 'react';
+import React, {FC, useState} from 'react';
 // @ts-ignore
 import manu_page_hamburger from "../../../../../static/images/menu_hamburger.png";
-import {IDish, ITotalInfo} from "../../../../../types/types";
-import {GlobalContext, GlobalContextValues} from "../../../../../context/context";
 // @ts-ignore
 import classes from "./CartBodyDish.module.css"
 import DishButton from "../../../../UI/button/dish_button/DishButton";
+import {IDish} from "../../../../../types/dishes";
+import {ITotalInfo} from "../CartBody";
 
 interface CartBodyDish {
     dish: IDish,
@@ -14,8 +14,13 @@ interface CartBodyDish {
     setTotalInfo: React.Dispatch<ITotalInfo>
 }
 
-const CartBodyDish: FC<CartBodyDish> = ({dish, deleteDish, totalInfo, setTotalInfo}) => {
-    const {cart} = useContext<GlobalContextValues>(GlobalContext)
+const CartBodyDish: FC<CartBodyDish> = (
+    {
+        dish,
+        deleteDish,
+        totalInfo,
+        setTotalInfo
+    }) => {
     const [dishItem, setDishItem] = useState<IDish>(dish)
 
     const addCount = (): void => {

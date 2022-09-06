@@ -1,11 +1,13 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useState} from 'react';
 import Modal from "../Modal";
 // @ts-ignore
 import classes from './RegistrationModal.module.css';
-import {GlobalContext, GlobalContextValues} from "../../../../context/context";
-import {IUser} from "../../../../types/types";
-import {rolesMock} from "../../../../data/store";
+import {rolesMock} from "../../../../redux/mock_objects/store";
 import {useInput} from "../../../../hooks/useInput";
+import {IUser} from "../../../../types/users";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {useDispatch} from 'react-redux';
+import {addUser} from "../../../../redux/reducers/usersReducer";
 
 interface RegistrationModalProps {
     modal: boolean,
@@ -13,16 +15,14 @@ interface RegistrationModalProps {
     setLoginModal: React.Dispatch<boolean>
 }
 
-const RegistrationModal: FC<RegistrationModalProps> = ({modal, setModal, setLoginModal}) => {
-    const [user, setUser] = useState<IUser>({
-        id: 0,
-        name: '',
-        email: '',
-        phone: '',
-        password: '',
-        roles: [rolesMock[0]]
-    })
-    const {users, setUsers} = useContext<GlobalContextValues>(GlobalContext)
+const RegistrationModal: FC<RegistrationModalProps> = (
+    {
+        modal,
+        setModal,
+        setLoginModal
+    }) => {
+    const dispatch = useDispatch()
+    const {users} = useTypedSelector(state => state.users)
     const [isUserExists, setUserExists] = useState<boolean>(false)
 
     const name = useInput('', {isEmpty: true})
@@ -38,25 +38,34 @@ const RegistrationModal: FC<RegistrationModalProps> = ({modal, setModal, setLogi
         if (typeof findUserByEmail === 'object') {
             setUserExists(true)
         } else {
-
-            setUser({
-                ...user,
+            dispatch(addUser({
                 id: Date.now(),
                 name: name.value,
                 email: email.value,
                 phone: phone.value,
-                password: password.value
-            })
-            setUsers([...users, user])
+                password: password.value,
+                roles: [rolesMock[0]]
+            }))
             setModal(false)
             setLoginModal(true)
+            setInitValues()
         }
-
     }
 
     const openLoginModal = () => {
         setModal(false)
         setLoginModal(true)
+    }
+
+    const setInitValues = (): void => {
+        name.setValue('')
+        name.setDirty(false)
+        email.setValue('')
+        email.setDirty(false)
+        phone.setValue('')
+        phone.setDirty(false)
+        password.setValue('')
+        password.setDirty(false)
     }
     return (
         <Modal activeWhenClicked={false} active={modal} setActive={setModal}>

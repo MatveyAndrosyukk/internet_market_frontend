@@ -49,7 +49,7 @@ const useValidation = (value: (string), validations: IValidation) => {
     }
 }
 
-export const useInput = (initialValue: (string), validations: IValidation) => {
+export const useInput = (initialValue: string, validations: IValidation) => {
     const [value, setValue] = useState(initialValue)
     const [isDirty, setDirty] = useState(false)
     const valid = useValidation(value, validations)
@@ -82,6 +82,7 @@ export const useInput = (initialValue: (string), validations: IValidation) => {
 
     return {
         value,
+        setDirty,
         setValue,
         onChange,
         onBlur,
