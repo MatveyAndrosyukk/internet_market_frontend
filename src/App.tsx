@@ -18,7 +18,7 @@ const App = () => {
         <GlobalContext.Provider value={{
             isAuth, setIsAuth
         }}>
-                <BrowserRouter>
+                <BrowserRouter basename={'/internet_market_frontend'}>
                     <AppRouter/>
                 </BrowserRouter>
         </GlobalContext.Provider>
