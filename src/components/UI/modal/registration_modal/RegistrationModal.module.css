@@ -110,3 +110,14 @@ form{
     opacity: 0;
 }
 
+@media (max-height: 664px) {
+    .button_block {
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    .bad_credentials {
+        margin-top: 9px;
+    }
+}
+

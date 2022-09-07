@@ -11,6 +11,6 @@ body {
 
 @media (max-width: 828px) {
     .container {
-        margin: auto;
+        margin: 0;
     }
 }

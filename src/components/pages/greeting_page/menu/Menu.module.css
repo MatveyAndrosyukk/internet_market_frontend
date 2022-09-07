@@ -124,6 +124,7 @@
 .dishes_list {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 .disabled{
@@ -144,10 +145,6 @@
     .dishes_list {
         display: block;
         margin-top: 30px;
-    }
-
-    .content {
-        padding-left: 30px;
     }
 
     .prev_dish {

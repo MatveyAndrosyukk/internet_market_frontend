@@ -31,19 +31,21 @@ const Footer: FC<BookTableProps> = (
     return (
         <div className={classes.footer}>
             <div className='container'>
-                <div className={classes.line}>
-                    <div className={classes.text}>
-                        <div className={classes.text_big}>
-                            Отпразднуйте в одном из самых лучших ресторанов.
+                <div className={classes.content}>
+                    <div className={classes.line}>
+                        <div className={classes.text}>
+                            <div className={classes.text_big}>
+                                Отпразднуйте в одном из самых лучших ресторанов.
+                            </div>
+                            <div className={classes.text_small}>
+                                Только в этом месяце бизнес-ланч от 40 руб.
+                            </div>
                         </div>
-                        <div className={classes.text_small}>
-                            Только в этом месяце бизнес-ланч от 40 руб.
+                        <div className={classes.button_block}>
+                            <NavButton onClick={bookTable}>
+                                ЗАКАЗ СТОЛИКА
+                            </NavButton>
                         </div>
-                    </div>
-                    <div className={classes.button_block}>
-                        <NavButton onClick={bookTable}>
-                            ЗАКАЗ СТОЛИКА
-                        </NavButton>
                     </div>
                 </div>
             </div>

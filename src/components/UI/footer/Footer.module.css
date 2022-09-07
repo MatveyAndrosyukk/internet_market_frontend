@@ -3,13 +3,25 @@
     background-image: url("../../../static/images/book_bg_image.png");
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 80px 104px 165px 186px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .line {
     display: flex;
     justify-content: space-between;
+    padding: 50px 50px;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: auto;
 }
 
 .text {
@@ -63,6 +75,12 @@
     }
     .footer {
         height: auto;
+    }
+}
+
+@media (max-width: 386px) {
+    .line {
+        padding: 0;
     }
 }
 

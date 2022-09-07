@@ -21,6 +21,9 @@ const Modal: React.FC<ModalProps> = (
              onClick={() => setActive(activeWhenClicked)}>
             <div className={active ? [classes.modal_content, classes.active].join(' ') : classes.modal_content}
                  onClick={e => e.stopPropagation()}>
+                <div className={classes.close} onClick={() => setActive(false)}>
+                    <i className="fa-solid fa-xmark"></i>
+                </div>
                 {children}
             </div>
         </div>

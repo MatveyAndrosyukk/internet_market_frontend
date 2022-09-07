@@ -52,7 +52,7 @@ form{
 }
 
 .button_block{
-    margin: 90px 0 30px;
+    margin-bottom: auto;
     height: 45px;
     width: 100%;
     position: relative;
@@ -74,7 +74,7 @@ form{
 }
 
 .modal_select {
-    margin-bottom: -40px;
+    margin-bottom: -55px;
 }
 
 .modal_select label {
@@ -101,4 +101,25 @@ form{
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
+}
+
+@media (max-height: 744px) {
+    .data input{
+        height: 60%;
+    }
+
+    .data {
+        margin-top: -35px;
+    }
+
+    .modal_select {
+        margin-bottom: 35px;
+    }
+    .incorrectData {
+        display: none;
+    }
+
+    .button_block {
+        margin: 0;
+    }
 }

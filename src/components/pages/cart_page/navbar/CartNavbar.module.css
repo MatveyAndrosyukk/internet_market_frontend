@@ -74,12 +74,6 @@
     margin-top: 25px;
 }
 
-@media (max-width: 833px) {
-    .first_line {
-        padding: 0 100px;
-    }
-}
-
 @media (max-width: 1503px) {
     .nav {
         display: none;
@@ -96,6 +90,18 @@
     .second_line .title {
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+@media (max-width: 828px) {
+    .first_line {
+        padding: 50px 50px 0;
+    }
+}
+
+@media (max-width: 378px) {
+    .first_line {
+        padding: 50px 20px 0;
     }
 }
 
