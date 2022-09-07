@@ -153,6 +153,12 @@
     text-align: center;
     margin-left: -10px;
     color: #894b17;
+    cursor: pointer;
+    transition: color 0.2s linear;
+}
+
+.nav_items .nav_item:hover {
+    color: #D81D1D;
 }
 
 .hidden {

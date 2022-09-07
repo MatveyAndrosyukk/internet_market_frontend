@@ -42,14 +42,14 @@ const MenuBurger: FC<MenuBurgerProps> = (
                 </div>
                 {children}
                 <div className={classes.nav_item}>
-                    <a className={classes.nav_item} href='#hist'>О НАС</a>
+                    <Link className={classes.nav_item} to={'/greeting#hist'}>О НАС</Link>
                 </div>
                 <div className={classes.nav_item}>
                     <a className={classes.nav_item} onClick={bookTable}>СТОЛИК</a>
                 </div>
                 {localStorage.getItem('ADMIN')
                     && <div className={classes.nav_item}>
-                        <a className={classes.nav_item} href={'#'} onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</a>
+                        <a href={'#'} onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</a>
                     </div>}
                 <div className={classes.nav_item}>
                     {isAuth

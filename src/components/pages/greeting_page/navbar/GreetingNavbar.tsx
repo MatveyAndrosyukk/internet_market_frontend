@@ -107,7 +107,7 @@ const GreetingNavbar: FC<GreetingNavbarProps> = (
                             setLoginModal={setLoginModal}>
                             <div className={classes.nav_items}>
                                 <div className={classes.nav_item}>
-                                    <a className={classes.nav_item} href='#menu'>МЕНЮ</a>
+                                    <Link className={classes.nav_item} to={'/menu'}>МЕНЮ</Link>
                                 </div>
                                 <div className={classes.nav_item}>
                                     <Link className={classes.nav_item} to={'/cart'}>КОРЗИНА</Link>

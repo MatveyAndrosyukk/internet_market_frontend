@@ -1,6 +1,7 @@
 .burger_slide {
     display: block;
     position: absolute;
+    z-index: 100;
 }
 
 .burger_slide .nav_item {
@@ -8,6 +9,7 @@
 }
 
 .nav_item {
+    cursor: pointer;
     color: #894b17;
     text-decoration: none;
     font-weight: 700;
