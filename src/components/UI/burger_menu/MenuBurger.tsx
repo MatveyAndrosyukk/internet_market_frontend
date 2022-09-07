@@ -49,12 +49,12 @@ const MenuBurger: FC<MenuBurgerProps> = (
                 </div>
                 {localStorage.getItem('ADMIN')
                     && <div className={classes.nav_item}>
-                        <a href={'#'} onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</a>
+                        <a className={classes.nav_item} onClick={() => setAddDishModal(true)}>ДОБАВИТЬ</a>
                     </div>}
                 <div className={classes.nav_item}>
                     {isAuth
-                        ? <a className={classes.nav_item} href='#' onClick={logout}>ВЫЙТИ</a>
-                        : <a className={classes.nav_item} href='#'
+                        ? <a className={classes.nav_item} onClick={logout}>ВЫЙТИ</a>
+                        : <a className={classes.nav_item}
                              onClick={() => setLoginModal(true)}>ВОЙТИ</a>}
                 </div>
             </div>
