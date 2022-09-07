@@ -118,7 +118,7 @@ const AddDishModal: FC<AddDishModalProps> = (
                             Поле заполнено неверно
                         </div>
                         <label>Укажите описание</label>
-                        <input type='tel' value={description.value}
+                        <input type='text' value={description.value}
                                onBlur={() => description.onBlur()}
                                onChange={e => description.onChange(e)}/>
                     </div>
