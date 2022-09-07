@@ -1,3 +1,8 @@
+.burger_menu_image {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    user-select: none;
+}
+
 .burger_slide {
     display: block;
     position: absolute;
@@ -9,6 +14,8 @@
 }
 
 .nav_item {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    user-select: none;
     cursor: pointer;
     color: #894b17;
     text-decoration: none;

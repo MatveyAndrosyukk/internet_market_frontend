@@ -26,6 +26,8 @@
 
 
 .menu_page_prev_page {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    user-select: none;
     margin-top: 40px;
     width: 70px;
     height: 70px;
@@ -80,6 +82,7 @@
 }
 
 .next_dish {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     user-select: none;
     width: 40px;
     height: 40px;
@@ -101,6 +104,7 @@
 }
 
 .prev_dish {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     user-select: none;
     width: 40px;
     height: 40px;

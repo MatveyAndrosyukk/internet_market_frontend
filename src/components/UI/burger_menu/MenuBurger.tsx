@@ -30,7 +30,7 @@ const MenuBurger: FC<MenuBurgerProps> = (
 ) => {
     return (
         <div>
-            <a href='#' onClick={() => isBurgerSlide ? setBurgerSlide(false) : setBurgerSlide(true)}>
+            <a className={classes.burger_menu_image} onClick={() => isBurgerSlide ? setBurgerSlide(false) : setBurgerSlide(true)}>
                 <img src={burger_menu} alt={'burger-menu'}/>
             </a>
             <div className={isBurgerSlide
