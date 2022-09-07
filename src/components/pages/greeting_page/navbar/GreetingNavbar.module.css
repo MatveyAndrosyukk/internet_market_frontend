@@ -150,6 +150,9 @@
 
 .nav_items .nav_item {
     margin-top: 25px;
+    text-align: center;
+    margin-left: -10px;
+    color: #894b17;
 }
 
 .hidden {
@@ -200,7 +203,7 @@
 
 @media (max-width: 508px) {
     .line {
-        padding: 50px 20px 0;
+        padding: 50px 40px 0;
     }
 }
 

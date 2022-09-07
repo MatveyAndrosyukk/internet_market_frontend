@@ -72,6 +72,9 @@
 
 .nav_items .nav_item {
     margin-top: 25px;
+    text-align: center;
+    margin-left: -23px;
+    color: #894b17;
 }
 
 @media (max-width: 1503px) {
@@ -101,7 +104,7 @@
 
 @media (max-width: 378px) {
     .first_line {
-        padding: 50px 20px 0;
+        padding: 50px 40px 0;
     }
 }
 

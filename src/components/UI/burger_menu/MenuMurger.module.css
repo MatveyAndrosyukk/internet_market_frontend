@@ -8,11 +8,13 @@
 }
 
 .nav_item {
-    color: #fff;
+    color: #894b17;
     text-decoration: none;
     font-weight: 700;
     font-size: 14px;
     margin-right: 25px;
+    margin-left: -9px;
+    text-align: center;
     transition: color 0.2s linear;
 }
 
