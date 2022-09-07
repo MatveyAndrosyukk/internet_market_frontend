@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/internet_market_frontend/static/css/main.c30692fe.css",
-    "main.js": "/internet_market_frontend/static/js/main.33fc04cf.js",
+    "main.css": "/internet_market_frontend/static/css/main.6a3e2743.css",
+    "main.js": "/internet_market_frontend/static/js/main.5a99b2e3.js",
     "static/media/menu_page_bg.png": "/internet_market_frontend/static/media/menu_page_bg.97f47571c1160d560c9c.png",
     "static/media/bg_image.png": "/internet_market_frontend/static/media/bg_image.2c9d2cca5b364b8d2cba.png",
     "static/media/book_bg_image.png": "/internet_market_frontend/static/media/book_bg_image.51e8060111b76c6fe4b6.png",
@@ -43,11 +43,11 @@
     "static/media/milk_shake_popkorn.PNG": "/internet_market_frontend/static/media/milk_shake_popkorn.9cef744918e87dc67205.PNG",
     "static/media/add_dish_image.png": "/internet_market_frontend/static/media/add_dish_image.59d2bf6067274d30f02a.png",
     "index.html": "/internet_market_frontend/index.html",
-    "main.c30692fe.css.map": "/internet_market_frontend/static/css/main.c30692fe.css.map",
-    "main.33fc04cf.js.map": "/internet_market_frontend/static/js/main.33fc04cf.js.map"
+    "main.6a3e2743.css.map": "/internet_market_frontend/static/css/main.6a3e2743.css.map",
+    "main.5a99b2e3.js.map": "/internet_market_frontend/static/js/main.5a99b2e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.c30692fe.css",
-    "static/js/main.33fc04cf.js"
+    "static/css/main.6a3e2743.css",
+    "static/js/main.5a99b2e3.js"
   ]
 }
