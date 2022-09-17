@@ -5,7 +5,6 @@ import Modal from "../Modal";
 import InfoModal from "../info_modal/InfoModal";
 import {useInput} from "../../../../hooks/useInput";
 import {useDispatch} from 'react-redux';
-import {cleanCart} from "../../../../redux/reducers/cartReducer";
 import {ITotalInfo} from "../../../pages/cart_page/body/CartBody";
 
 interface OrderModal {
@@ -36,18 +35,18 @@ const OrderDishModal: FC<OrderModal> = (
         setRegistrationModal(true)
     }
 
-    const orderDishes = (e: React.FormEvent<HTMLButtonElement>): void => {
-        e.preventDefault();
-
-        setModal(false)
-        setInfoModal(true)
-        setTimeout(() => {
-            setInfoModal(false)
-            dispatch(cleanCart())
-            setTotalInfo({price: 0, count: 0})
-            setInitValues()
-        }, 3000)
-    }
+    // const orderDishes = (e: React.FormEvent<HTMLButtonElement>): void => {
+    //     e.preventDefault();
+    //
+    //     setModal(false)
+    //     setInfoModal(true)
+    //     setTimeout(() => {
+    //         setInfoModal(false)
+    //         dispatch(cleanCart())
+    //         setTotalInfo({price: 0, count: 0})
+    //         setInitValues()
+    //     }, 3000)
+    // }
 
     const setInitValues = ():void => {
         address.setValue('')
@@ -97,8 +96,8 @@ const OrderDishModal: FC<OrderModal> = (
                     </div>
                     <div className={classes.button_block}>
                         <div className={classes.inner}/>
-                        <button disabled={!address.isInputValid || !cardNumber.isInputValid}
-                            type='submit' onClick={e => orderDishes(e)}>Доставить</button>
+                        {/*<button disabled={!address.isInputValid || !cardNumber.isInputValid}*/}
+                        {/*    type='submit' onClick={e => orderDishes(e)}>Доставить</button>*/}
                     </div>
                     <div className={classes.signup_link}>
                         Not a member? <a href='#' onClick={openRegistrationModal}>Singup now</a>

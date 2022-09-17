@@ -8,8 +8,9 @@ import classes from './AddDishModal.module.css';
 import Select from "../../select/Select";
 import ImageLoader from "../../image_loader/ImageLoader";
 import {useInput} from "../../../../hooks/useInput";
-import {useDispatch} from 'react-redux';
-import {addDishAction} from "../../../../redux/reducers/dishesReducer";
+import DishesService from "../../../../api/DishesService";
+import {useDispatch} from "react-redux";
+import {addDishReducer} from "../../../../redux/reducers/dishesReducer";
 
 interface AddDishModalProps {
     modal: boolean,
@@ -21,8 +22,8 @@ const AddDishModal: FC<AddDishModalProps> = (
         modal,
         setModal
     }) => {
-    const dispatch = useDispatch()
     const [infoModal, setInfoModal] = useState<boolean>(false)
+    const dispatch = useDispatch();
 
     const image = useInput('', {isEmpty: true})
     const category = useInput('', {isEmpty: true})
@@ -33,24 +34,26 @@ const AddDishModal: FC<AddDishModalProps> = (
     const addDishToMenu = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void => {
         e.preventDefault()
 
-        dispatch(addDishAction({
-            id: Date.now(),
+        let dish = {
             category: category.value,
-            image: image.value,
             title: title.value,
+            image: image.value,
             description: description.value,
             price: parseInt(price.value),
             count: 1,
             totalPrice: parseInt(price.value)
-        }))
+        }
+        console.log(dish)
+        DishesService.addDish(dish).then(() => {
+            dispatch(addDishReducer(dish))
+            setModal(false)
+            setInfoModal(true)
+            setTimeout(() => {
+                setInfoModal(false)
+            }, 2000)
 
-        setModal(false)
-        setInfoModal(true)
-        setTimeout(() => {
-            setInfoModal(false)
-        }, 2000)
-
-        setInitValues()
+            setInitValues()
+        })
     }
 
     const setInitValues = (): void => {
@@ -93,9 +96,9 @@ const AddDishModal: FC<AddDishModalProps> = (
                                     category.onChangeSelect(e)
                                 }}
                                 options={[
-                                    {name: 'Еда', value: 'Еда'},
-                                    {name: 'Напитки', value: 'Напитки'},
-                                    {name: 'Закуски', value: 'Закуски'}
+                                    {name: 'Еда', value: 'food'},
+                                    {name: 'Напитки', value: 'drinks'},
+                                    {name: 'Закуски', value: 'snacks'}
                                 ]}
                                 defaultValue={'Категория'}/>
                         </div>

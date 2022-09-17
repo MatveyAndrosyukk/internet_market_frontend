@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {convertToBase64} from "../utils/convertToBase64";
 
 interface IValidation {
     isEmpty?: boolean,
@@ -50,7 +51,7 @@ const useValidation = (value: (string), validations: IValidation) => {
 }
 
 export const useInput = (initialValue: string, validations: IValidation) => {
-    const [value, setValue] = useState(initialValue)
+    const [value, setValue] = useState<any>(initialValue)
     const [isDirty, setDirty] = useState(false)
     const valid = useValidation(value, validations)
 
@@ -75,9 +76,13 @@ export const useInput = (initialValue: string, validations: IValidation) => {
         setDirty(true)
     }
 
-    const onChangeImage = (e: any) => {
-        let url = URL.createObjectURL(e.target.files[0])
-        setValue(url)
+    const onChangeImage = async (e: any) => {
+        const file = e.target.files[0]
+        const base64 = await convertToBase64(file);
+        setValue(base64)
+        console.log(base64)
+        // let url = URL.createObjectURL(e.target.files[0])
+        // setValue(url)
     }
 
     return {

@@ -2,12 +2,12 @@ import React, {FC, useState} from 'react';
 import Modal from "../Modal";
 // @ts-ignore
 import classes from './RegistrationModal.module.css';
-import {rolesMock} from "../../../../redux/mock_objects/store";
 import {useInput} from "../../../../hooks/useInput";
-import {IUser} from "../../../../types/users";
+import {IUser} from "../../../../types/user";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {useDispatch} from 'react-redux';
-import {addUser} from "../../../../redux/reducers/usersReducer";
+import {useUserActions} from "../../../../hooks/use_actions/useUserActions";
+import UserService from "../../../../api/UserService";
 
 interface RegistrationModalProps {
     modal: boolean,
@@ -21,31 +21,28 @@ const RegistrationModal: FC<RegistrationModalProps> = (
         setModal,
         setLoginModal
     }) => {
-    const dispatch = useDispatch()
-    const {users} = useTypedSelector(state => state.users)
     const [isUserExists, setUserExists] = useState<boolean>(false)
-
     const name = useInput('', {isEmpty: true})
     const email = useInput('', {isEmpty: true, isEmail: ''})
     const phone = useInput('', {isEmpty: true, isPhone: ''})
     const password = useInput('', {isEmpty: true})
 
-    const registerUser = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const registerUser = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
 
-        let findUserByEmail: (IUser | undefined) = users.find(user => user.email === email.value)
+        const userFromDb = await UserService.findUserByEmail(email.value)
 
-        if (typeof findUserByEmail === 'object') {
+        if (typeof userFromDb === 'object') {
             setUserExists(true)
         } else {
-            dispatch(addUser({
-                id: Date.now(),
+            let signUpRequest = {
                 name: name.value,
                 email: email.value,
                 phone: phone.value,
-                password: password.value,
-                roles: [rolesMock[0]]
-            }))
+                password: password.value
+            }
+            await UserService.saveUser(signUpRequest)
+
             setModal(false)
             setLoginModal(true)
             setInitValues()

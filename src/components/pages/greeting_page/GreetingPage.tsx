@@ -4,10 +4,12 @@ import Cooks from "./cooks/Cooks";
 import Footer from "../../UI/footer/Footer";
 import Menu from "./menu/Menu";
 import GreetingNavbar from "./navbar/GreetingNavbar";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 const GreetingPage: FC = () => {
     const [modal, setModal] = useState<boolean>(false)
     const [registrationModal, setRegistrationModal] = useState<boolean>(false)
+    const {user} = useTypedSelector(state => state.user)
 
     return (
         <div>

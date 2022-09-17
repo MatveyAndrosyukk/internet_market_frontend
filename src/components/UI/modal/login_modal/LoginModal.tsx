@@ -5,7 +5,8 @@ import Modal from "../Modal";
 import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import {useInput} from "../../../../hooks/useInput";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {IUser} from "../../../../types/users";
+import {useUserActions} from "../../../../hooks/use_actions/useUserActions";
+import {IUser} from "../../../../types/user";
 
 interface LoginModalProps {
     modal: boolean,
@@ -19,7 +20,8 @@ const LoginModal: FC<LoginModalProps> = (
         setModal,
         setRegistrationModal
     }) => {
-    const {users} = useTypedSelector(state => state.users)
+    const {user} = useTypedSelector(state => state.user)
+    const {login} = useUserActions()
     const {setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
     const [areBadCredentials, setAreBadCredentials] = useState<boolean>(false);
 
@@ -31,25 +33,23 @@ const LoginModal: FC<LoginModalProps> = (
         setModal(false)
     }
 
-    const logIn = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const logIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
 
-        let user: (IUser | undefined) = users.find(user => user.email === email.value)
+        let principal = await login(email.value, password.value)
+        console.log(principal)
 
-        if (typeof user === 'object') {
-            if (user.password == password.value) {
-                setIsAuth(true)
+        if (user !== null){
+            setIsAuth(true)
 
-                if (user.roles.find(role => role.name === 'ADMIN')) localStorage.setItem('ADMIN', 'ADMIN')
-                localStorage.setItem('auth', 'true')
+            localStorage.setItem('auth', 'true')
+            user.roles.includes('ADMIN') && localStorage.setItem('ADMIN', 'ADMIN')
+            localStorage.setItem('user_email', user.email)
 
-                setModal(false)
-                setInitValues()
-                setAreBadCredentials(false)
-            } else {
-                setAreBadCredentials(true)
-            }
-        } else {
+            setModal(false)
+
+            setInitValues()
+        }else {
             setAreBadCredentials(true)
         }
     }

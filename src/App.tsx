@@ -3,15 +3,28 @@ import './App.css';
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./router/AppRouter";
 import {GlobalContext} from "./context/context";
+import {useUserActions} from "./hooks/use_actions/useUserActions";
+import {useDishesActions} from "./hooks/use_actions/useDishesActions";
 
 
 const App = () => {
     const [isAuth, setIsAuth] = useState<boolean>(false)
+    const {fetchUserByEmail} = useUserActions()
+    const {fetchDishes} = useDishesActions()
 
     useEffect(() => {
         if (localStorage.getItem('auth')){
             setIsAuth(true)
         }
+    }, [])
+
+    useEffect(() => {
+        let email = localStorage.getItem('user_email')
+        email && fetchUserByEmail(email)
+    }, [])
+
+    useEffect(() => {
+        fetchDishes()
     }, [])
 
     return (

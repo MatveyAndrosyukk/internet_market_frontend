@@ -8,6 +8,7 @@ interface ImageLoader {
     image: any
 }
 const ImageLoader:FC<ImageLoader> = ({image}) => {
+
     return (
         <div className={classes.image_loader}>
             <div className={classes.image}>

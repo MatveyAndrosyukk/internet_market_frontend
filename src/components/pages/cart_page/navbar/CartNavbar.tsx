@@ -12,6 +12,8 @@ import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import burger_menu from "../../../../static/images/burger.png";
 import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
 import MenuBurger from "../../../UI/burger_menu/MenuBurger";
+import {useDispatch} from "react-redux";
+import {setUserReducer} from "../../../../redux/reducers/userReducer";
 
 interface MenuNavbarProps {
     modal: boolean,
@@ -32,12 +34,13 @@ const MenuNavbar: FC<MenuNavbarProps> = (
     const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
     const {isAuth, setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
+    const dispatch = useDispatch()
 
     const bookTable = () => {
         if (isAuth) {
             setModal(true)
         } else {
-            setRegistrationModal(true)
+            setLoginModal(true)
         }
     }
 
@@ -45,6 +48,8 @@ const MenuNavbar: FC<MenuNavbarProps> = (
         setIsAuth(false)
         localStorage.removeItem('auth')
         localStorage.removeItem('ADMIN')
+        localStorage.removeItem('user_email')
+        dispatch(setUserReducer(null))
     }
 
     return (

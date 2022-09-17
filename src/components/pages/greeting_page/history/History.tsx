@@ -33,7 +33,7 @@ const History:FC = () => {
                         <div className={classes.history_menu}>
                             <div className={classes.history_menu_item}>
                                 <div className={classes.history_menu_item_number}>
-                                    {dishes.filter(dish => dish.category === 'Напитки').length}
+                                    {dishes.filter(dish => dish.category === 'drinks').length}
                                 </div>
                                 <div className={classes.history_menu_item_text}>
                                     Напитки
@@ -41,7 +41,7 @@ const History:FC = () => {
                             </div>
                             <div className={classes.history_menu_item}>
                                 <div className={classes.history_menu_item_number}>
-                                    {dishes.filter(dish => dish.category === 'Еда').length}
+                                    {dishes.filter(dish => dish.category === 'food').length}
                                 </div>
                                 <div className={classes.history_menu_item_text}>
                                     Еда
@@ -49,7 +49,7 @@ const History:FC = () => {
                             </div>
                             <div className={classes.history_menu_item}>
                                 <div className={classes.history_menu_item_number}>
-                                    {dishes.filter(dish => dish.category === 'Закуски').length}
+                                    {dishes.filter(dish => dish.category === 'snacks').length}
                                 </div>
                                 <div className={classes.history_menu_item_text}>
                                     Закуски

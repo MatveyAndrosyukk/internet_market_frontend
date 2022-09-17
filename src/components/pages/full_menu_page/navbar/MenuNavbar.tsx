@@ -11,6 +11,8 @@ import {GlobalContext, GlobalContextValues} from "../../../../context/context";
 import NavButton from "../../../UI/button/nav_button/NavButton";
 import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
 import MenuBurger from "../../../UI/burger_menu/MenuBurger";
+import {setUserReducer} from "../../../../redux/reducers/userReducer";
+import {useDispatch} from "react-redux";
 
 interface MenuNavbarProps {
     category: string,
@@ -27,12 +29,13 @@ const MenuNavbar: FC<MenuNavbarProps> = ({category, setCategory, modal, setModal
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
     const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
     const {isAuth, setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
+    const dispatch = useDispatch()
 
     const bookTable = () => {
         if (isAuth) {
             setModal(true)
         } else {
-            setRegistrationModal(true)
+            setLoginModal(true)
         }
     }
 
@@ -40,6 +43,8 @@ const MenuNavbar: FC<MenuNavbarProps> = ({category, setCategory, modal, setModal
         setIsAuth(false)
         localStorage.removeItem('auth')
         localStorage.removeItem('ADMIN')
+        localStorage.removeItem('user_email')
+        dispatch(setUserReducer(null))
     }
 
     return (
@@ -97,23 +102,23 @@ const MenuNavbar: FC<MenuNavbarProps> = ({category, setCategory, modal, setModal
                     </div>
                 </div>
                 <div className={classes.third_line}>
-                    <div className={category.includes('Напитки')
+                    <div className={category.includes('drinks')
                         ? [classes.category, classes.underlined].join(' ')
                         : classes.category}
                     >
-                        <a onClick={() => setCategory('Напитки')}>Напитки</a>
+                        <a onClick={() => setCategory('drinks')}>Напитки</a>
                     </div>
-                    <div className={category.includes('Еда')
+                    <div className={category.includes('food')
                         ? [classes.category, classes.underlined].join(' ')
                         : classes.category}
                     >
-                        <a onClick={() => setCategory('Еда')}>Еда</a>
+                        <a onClick={() => setCategory('food')}>Еда</a>
                     </div>
-                    <div className={category.includes('Закуски')
+                    <div className={category.includes('snacks')
                         ? [classes.category, classes.underlined].join(' ')
                         : classes.category}
                     >
-                        <a onClick={() => setCategory('Закуски')}>Закуски</a>
+                        <a onClick={() => setCategory('snacks')}>Закуски</a>
                     </div>
                 </div>
                 <BookTableModal modal={modal}

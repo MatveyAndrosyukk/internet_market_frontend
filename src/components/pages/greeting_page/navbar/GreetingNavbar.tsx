@@ -15,6 +15,8 @@ import AddDishModal from "../../../UI/modal/add_dish_modal/AddDishModal";
 import classes from "./GreetingNavbar.module.css"
 import NavButton from "../../../UI/button/nav_button/NavButton";
 import MenuBurger from "../../../UI/burger_menu/MenuBurger";
+import {useDispatch} from "react-redux";
+import {setUserReducer} from "../../../../redux/reducers/userReducer";
 
 interface GreetingNavbarProps {
     modal: boolean,
@@ -34,18 +36,21 @@ const GreetingNavbar: FC<GreetingNavbarProps> = (
     const [isBurgerSlide, setBurgerSlide] = useState<boolean>(false)
     const [addDishModal, setAddDishModal] = useState<boolean>(false)
     const {isAuth, setIsAuth} = useContext<GlobalContextValues>(GlobalContext)
+    const dispatch = useDispatch()
 
     const logout = () => {
         setIsAuth(false)
         localStorage.removeItem('auth')
         localStorage.removeItem('ADMIN')
+        localStorage.removeItem('user_email')
+        dispatch(setUserReducer(null))
     }
 
     const bookTable = () => {
         if (isAuth) {
             setModal(true)
         } else {
-            setRegistrationModal(true)
+            setLoginModal(true)
         }
     }
 

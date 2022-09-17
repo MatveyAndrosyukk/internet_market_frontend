@@ -1,4 +1,3 @@
-import {IDish} from "../../types/dishes";
 // @ts-ignore
 import bif_burger from "../../static/images/dishes/bif-burger.PNG";
 // @ts-ignore
@@ -59,6 +58,7 @@ import cezar from "../../static/images/dishes/cezar.PNG";
 import batat_free from "../../static/images/dishes/batat_free.PNG";
 // @ts-ignore
 import legkiy_salat from "../../static/images/dishes/legkiy_salat.PNG";
+import {IDish} from "../dish";
 
 
 export const dishesMock: IDish[] = [
@@ -172,99 +172,8 @@ export const dishesMock: IDish[] = [
         totalPrice: 10,
         category: 'Еда'
     },
-
     {
         id: 12,
-        count: 1,
-        image: limonad_mohito,
-        title: 'Лимонад Мохито',
-        description: 'Маленький 300 мл, Средний 470 мл',
-        price: 4,
-        totalPrice: 4,
-        category: 'Напитки'
-    },
-    {
-        id: 13,
-        count: 1,
-        image: ice_cofe_caramel,
-        title: 'Айс-кофе Карамель',
-        description: 'Маленький 300 мл, Средний 470 мл',
-        price: 5,
-        totalPrice: 5,
-        category: 'Напитки'
-    },
-    {
-        id: 14,
-        count: 1,
-        image: kofe_dvoinoi_espresso,
-        title: 'Кофе Двойной Эспрессо',
-        description: 'Маленький 300 мл, Средний 470 мл',
-        price: 5,
-        totalPrice: 5,
-        category: 'Напитки'
-    },
-    {
-        id: 15,
-        count: 1,
-        image: kofe_gliase,
-        title: 'Кофе Глясе',
-        description: 'Маленький 300 мл, Средний 470 мл',
-        price: 5,
-        totalPrice: 5,
-        category: 'Напитки'
-    },
-    {
-        id: 16,
-        count: 1,
-        image: kofe_amerikano,
-        title: 'Кофе Американо',
-        description: 'Маленький 300 мл, Средний 470 мл',
-        price: 5,
-        totalPrice: 5,
-        category: 'Напитки'
-    },
-    {
-        id: 17,
-        count: 1,
-        image: kofe_kapuchino,
-        title: 'Кофе Капучино',
-        description: 'Маленький 300 мл, Средний 470 мл',
-        price: 5,
-        totalPrice: 5,
-        category: 'Напитки'
-    },
-    {
-        id: 18,
-        count: 1,
-        image: coca_cola,
-        title: 'Coca-Cola',
-        description: 'Маленькая порция, Средняя порция, Большая порция',
-        price: 5,
-        totalPrice: 5,
-        category: 'Напитки'
-    },
-    {
-        id: 19,
-        count: 1,
-        image: milkshake_klubnika,
-        title: 'Милкшейк Клубника',
-        description: 'Маленькая порция, Средняя порция, Большая порция',
-        price: 6,
-        totalPrice: 6,
-        category: 'Напитки'
-    },
-    {
-        id: 20,
-        count: 1,
-        image: milk_shake_popkorn,
-        title: 'Милкшейк Попкорн',
-        description: 'Маленькая порция, Средняя порция, Большая порция',
-        price: 6,
-        totalPrice: 6,
-        category: 'Напитки'
-    },
-    {
-        id: 21,
         count: 1,
         image: tomaty_so_stracheloy,
         title: 'Томаты со страчетеллой и персиком',
@@ -274,7 +183,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 22,
+        id: 13,
         count: 1,
         image: kartofel_po_tehasski,
         title: 'Картофель по-техасски',
@@ -284,7 +193,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 23,
+        id: 14,
         count: 1,
         image: losos_i_persikoviy_tartar,
         title: 'Лосось и персиковый тартар',
@@ -294,7 +203,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 24,
+        id: 15,
         count: 1,
         image: vitello_tonato,
         title: 'Вителло Тоннато',
@@ -304,7 +213,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 25,
+        id: 16,
         count: 1,
         image: krivetki_free,
         title: 'Креветки-фри',
@@ -314,7 +223,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 26,
+        id: 17,
         count: 1,
         image: batat_free,
         title: 'Батат-фри с соусом Алабама',
@@ -324,7 +233,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 27,
+        id: 18,
         count: 1,
         image: legkiy_salat,
         title: 'Легкий салат',
@@ -334,7 +243,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 28,
+        id: 19,
         count: 1,
         image: cezar,
         title: 'Цезарь',
@@ -344,7 +253,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 29,
+        id: 20,
         count: 1,
         image: cezar_s_lososem,
         title: 'Цезарь с лососем',
@@ -354,7 +263,7 @@ export const dishesMock: IDish[] = [
         category: 'Закуски'
     },
     {
-        id: 30,
+        id: 21,
         count: 1,
         image: cezar_s_ciplenkom,
         title: 'Цезарь с цыпленком',
@@ -362,5 +271,95 @@ export const dishesMock: IDish[] = [
         price: 8,
         totalPrice: 8,
         category: 'Закуски'
+    },
+    {
+        id: 22,
+        count: 1,
+        image: limonad_mohito,
+        title: 'Лимонад Мохито',
+        description: 'Маленький 300 мл, Средний 470 мл',
+        price: 4,
+        totalPrice: 4,
+        category: 'Напитки'
+    },
+    {
+        id: 23,
+        count: 1,
+        image: ice_cofe_caramel,
+        title: 'Айс-кофе Карамель',
+        description: 'Маленький 300 мл, Средний 470 мл',
+        price: 5,
+        totalPrice: 5,
+        category: 'Напитки'
+    },
+    {
+        id: 24,
+        count: 1,
+        image: kofe_dvoinoi_espresso,
+        title: 'Кофе Двойной Эспрессо',
+        description: 'Маленький 300 мл, Средний 470 мл',
+        price: 5,
+        totalPrice: 5,
+        category: 'Напитки'
+    },
+    {
+        id: 25,
+        count: 1,
+        image: kofe_gliase,
+        title: 'Кофе Глясе',
+        description: 'Маленький 300 мл, Средний 470 мл',
+        price: 5,
+        totalPrice: 5,
+        category: 'Напитки'
+    },
+    {
+        id: 26,
+        count: 1,
+        image: kofe_amerikano,
+        title: 'Кофе Американо',
+        description: 'Маленький 300 мл, Средний 470 мл',
+        price: 5,
+        totalPrice: 5,
+        category: 'Напитки'
+    },
+    {
+        id: 27,
+        count: 1,
+        image: kofe_kapuchino,
+        title: 'Кофе Капучино',
+        description: 'Маленький 300 мл, Средний 470 мл',
+        price: 5,
+        totalPrice: 5,
+        category: 'Напитки'
+    },
+    {
+        id: 28,
+        count: 1,
+        image: coca_cola,
+        title: 'Coca-Cola',
+        description: 'Маленькая порция, Средняя порция, Большая порция',
+        price: 5,
+        totalPrice: 5,
+        category: 'Напитки'
+    },
+    {
+        id: 29,
+        count: 1,
+        image: milkshake_klubnika,
+        title: 'Милкшейк Клубника',
+        description: 'Маленькая порция, Средняя порция, Большая порция',
+        price: 6,
+        totalPrice: 6,
+        category: 'Напитки'
+    },
+    {
+        id: 30,
+        count: 1,
+        image: milk_shake_popkorn,
+        title: 'Милкшейк Попкорн',
+        description: 'Маленькая порция, Средняя порция, Большая порция',
+        price: 6,
+        totalPrice: 6,
+        category: 'Напитки'
     }
 ]

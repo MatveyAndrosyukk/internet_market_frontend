@@ -2,12 +2,13 @@ import React, {FC, useState} from 'react';
 // @ts-ignore
 import classes from "./CartBodyDish.module.css"
 import DishButton from "../../../../UI/button/dish_button/DishButton";
-import {IDish} from "../../../../../types/dishes";
 import {ITotalInfo} from "../CartBody";
+import {IDish} from "../../../../../types/dish";
+import {IUser} from "../../../../../types/user";
 
 interface CartBodyDish {
     dish: IDish,
-    deleteDish: (dish: IDish) => void,
+    deleteDish: (dishId: number | undefined) => void,
     totalInfo: ITotalInfo,
     setTotalInfo: React.Dispatch<ITotalInfo>
 }
@@ -19,37 +20,37 @@ const CartBodyDish: FC<CartBodyDish> = (
         totalInfo,
         setTotalInfo
     }) => {
-    const [dishItem, setDishItem] = useState<IDish>(dish)
+    const [cartItem, setCartItem] = useState<IDish>(dish)
 
     const addCount = (): void => {
-        setDishItem({...dishItem, count: dishItem.count + 1, totalPrice: dishItem.totalPrice + dishItem.price})
-        setTotalInfo({price: totalInfo.price + dishItem.price, count: totalInfo.count + 1})
+        setCartItem({...cartItem, count: cartItem.count + 1, totalPrice: cartItem.totalPrice + cartItem.price})
+        setTotalInfo({price: totalInfo.price + cartItem.price, count: totalInfo.count + 1})
     }
 
     return (
         <div className={classes.cart_dish}>
             <div className={classes.image_block}>
-                <img src={dishItem.image} alt='dish'/>
+                <img src={cartItem.image} alt='dish'/>
             </div>
             <div className={classes.description}>
                 <div className={classes.description_item}>
-                    {dishItem.title}
+                    {cartItem.title}
                 </div>
                 <div className={classes.description_item}>
-                    Количество: <span>{dishItem.count} шт.</span>
+                    Количество: <span>{cartItem.count} шт.</span>
                     <div className={[classes.plus_count, classes.first_plus].join(' ')} onClick={addCount}>
                         <span>+</span>
                     </div>
                 </div>
                 <div className={classes.description_item}>
-                    Цена: <span>{dishItem.totalPrice} руб.</span>
+                    Цена: <span>{cartItem.totalPrice} руб.</span>
                 </div>
                 <div className={[classes.plus_count, classes.second_plus].join(' ')} onClick={addCount}>
                     <span>+</span>
                 </div>
             </div>
             <div className={classes.button_block}>
-                <DishButton onClick={() => deleteDish(dish)}>
+                <DishButton onClick={() => deleteDish(cartItem.id)}>
                     УБРАТЬ
                 </DishButton>
             </div>

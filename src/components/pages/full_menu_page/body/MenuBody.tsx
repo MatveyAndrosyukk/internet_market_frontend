@@ -2,25 +2,33 @@ import React, {FC} from 'react';
 // @ts-ignore
 import classes from "./MenuBody.module.css"
 import Dish from "../../../UI/dish/Dish";
-import {IDish} from "../../../../types/dishes";
+import {IDish} from "../../../../types/dish";
+import Loader from "../../../UI/loader/Loader";
 
 interface MenuBodyDishes {
-    dishes: IDish[]
+    dishes: IDish[] | undefined,
+    loading: boolean
 }
 
 const MenuBody: FC<MenuBodyDishes> = (
     {
-        dishes
+        dishes,
+        loading
     }) => {
+
     return (
         <div className={classes.body}>
             <div className='container'>
                 <div className={classes.content}>
-                    <div className={classes.dishes}>
-                        {dishes.map(dish =>
-                            <Dish dish={dish}/>
-                        )}
-                    </div>
+                    {loading
+                        ? <Loader/>
+                        :
+                        <div className={classes.dishes}>
+                            {dishes?.map(dish =>
+                                <Dish dish={dish}/>
+                            )}
+                        </div>
+                    }
                 </div>
             </div>
         </div>
