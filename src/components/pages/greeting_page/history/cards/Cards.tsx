@@ -14,7 +14,7 @@ const Cards:FC = () => {
     return (
         <div className={classes.cards}>
             {cards.map(card =>
-                <Card card={card}/>
+                <Card key={card.id} card={card}/>
             )}
         </div>
     );

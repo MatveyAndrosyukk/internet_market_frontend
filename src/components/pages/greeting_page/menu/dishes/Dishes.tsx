@@ -15,7 +15,7 @@ const Dishes: FC<DishesProps> = (
     return (
         <div className={classes.dishes}>
             {dishes.map(dish =>
-                <Dish dish={dish}/>
+                <Dish key={dish.id} dish={dish}/>
             )}
         </div>
     );
