@@ -101,7 +101,7 @@ const CartBody: FC<CartBodyProps> = (
                     <div className={classes.dishes}>
                         {user?.cart
                                 && user.cart.map(cartItem =>
-                                    <CartBodyDish key={cartItem.id} totalInfo={totalInfo} setTotalInfo={setTotalInfo} dish={cartItem}
+                                    <CartBodyDish totalInfo={totalInfo} setTotalInfo={setTotalInfo} dish={cartItem}
                                                   deleteDish={deleteDishFromCart}/>)
                         }
                     </div>

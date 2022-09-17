@@ -25,7 +25,7 @@ const MenuBody: FC<MenuBodyDishes> = (
                         :
                         <div className={classes.dishes}>
                             {dishes?.map(dish =>
-                                <Dish key={dish.id} dish={dish}/>
+                                <Dish dish={dish}/>
                             )}
                         </div>
                     }
